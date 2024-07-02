@@ -1,0 +1,9 @@
+.test-class-69 {
+    height: 30%;
+    width: 30%;
+    background-color: blue;
+}
+
+.test-class-69:container('width >= 100px') {
+    background-color: green;
+  }

@@ -1,0 +1,24 @@
+// Set the default state of the drawer
+const drawer = document.getElementById("my-drawer");
+drawer.style.display = "none"; // initially hide the drawer
+drawer.style.right = "69px";
+
+// Show the drawer before it starts moving
+setTimeout(() => {
+  drawer.style.display = "block";
+}, 500);
+
+// Add an event listener to the trigger
+const trigger = document.getElementById("my-trigger");
+trigger.addEventListener("click", toggleDrawer);
+
+// Define the toggleDrawer function
+function toggleDrawer() {
+  if (drawer.style.right === "0px") {
+    // Drawer is already open, so close it
+    drawer.style.right = "69px";
+  } else {
+    // Drawer is closed, so open it
+    drawer.style.right = "0px";
+  }
+}

@@ -1,0 +1,54 @@
+@import "../../frontend/Orogen Data-Design System.scss"; /* Token Values */
+
+.form-wrap {
+    @include flex-form-wrap;
+}
+.form-section-heading {
+    @include form-section-heading;
+}
+.image-upload-wrap {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: $round-02;
+	border-color: $rockgrey-15;
+	border-width: $border-01;
+	border-style: solid;
+    padding: 1.5rem;
+    background-color: $white;
+    color: $rockgrey-55;
+    font-size: 0.875rem;
+    &.drag {
+        border-style: dashed;
+        border-color: $skyblue-50;
+        background-color: $skyblue-15;
+        & .icon {
+            fill: $skyblue-50;
+        }
+    }
+    & input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        opacity: 0;
+        cursor: pointer;
+    }
+    & .icon {
+        height: 3rem;
+        width: 3rem;
+        fill: $rockgrey-25;
+        margin-bottom: 1rem;
+    }
+    &:hover {
+        & .icon {
+            fill: $skyblue-50;
+        }
+        & .hov-line {
+        text-decoration: underline;
+        }
+    }
+}

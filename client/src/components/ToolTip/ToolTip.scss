@@ -1,0 +1,44 @@
+@charset "utf-8";
+@import "../../frontend/Orogen Data-Design System.scss"; /* Token Values */
+
+.has-tool-tip {
+	position: relative;
+	display: inline-block;
+}
+.has-tool-tip .tool-tip {
+	visibility: hidden;
+	opacity: 0;
+	width: 224px;
+	padding: 12px;
+	color: $rockgrey-05;
+	font-size: 13px;
+	line-height: 1.2;
+	letter-spacing: 0.02em;
+	text-transform: initial;
+	display: flex;
+	align-items: center;
+	background-color: $rockgrey-75;
+	box-shadow: $shadow-level-04;
+	border-radius: $border-04;
+	position: absolute;
+	z-index: 1;
+	bottom: 150%;
+	left: 50%;
+	margin-left: -112px;
+	transition:visibility 0.3s linear,opacity 0.3s linear;
+	&::after {
+		content: "";
+		position: absolute;
+		top: 100%;
+		left: 50%;
+		margin-left: -7px;
+		border-width: 7px;
+		border-style: solid;
+		border-color: $rockgrey-75 transparent transparent transparent;
+	}
+}
+.has-tool-tip:hover .tool-tip {
+	visibility: visible;
+	opacity: 1;
+
+}

@@ -1,0 +1,26 @@
+@charset "utf-8";
+@import "../../frontend/Orogen Data-Design System.scss"; /* Token Values */
+
+.error-wrapper{
+    width: 100%;
+    min-height: 100vh;
+    background-color: $rockgrey-90;
+    color: $rockgrey-10;
+    padding: $spacing-page-margin-normal;
+    padding-bottom: calc($spacing-page-margin-normal * 2);
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.error-icon {
+    fill: $alert-red-50;
+    width: $spacing-08;
+    height: $spacing-08;
+    object-fit: contain;
+}
+.error-type {
+    font-family: $fontfamily-labmono;
+    font-size: $typesize-10;
+    font-weight: 600;
+}

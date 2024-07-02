@@ -1,0 +1,34 @@
+@import "../../frontend/Orogen Data-Design System.scss"; /* Token Values */
+
+.form-wrap {
+    @include flex-form-wrap;
+}
+.form-section-heading {
+    @include form-section-heading;
+}
+
+.input-icon-wrap {
+    padding-top: 0.063em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $rockgrey-05;
+    position: absolute;
+    top: calc(0.5em + 1px);
+    bottom: calc(0.5em + 1px);
+    left: calc(0.5em + 1px);
+    aspect-ratio: 1 / 1;
+    height: calc((0.5em + (1.125rem * 1.2) + 0.5em) - (0.5em + 0.5em));
+    width: calc((0.5em + (1.125rem * 1.2) + 0.5em) - (0.5em + 0.5em));
+    font-size: 1.125rem;
+    color: $rockgrey-55;
+    border-radius: $round-01;
+    &.right {
+        right: calc(0.5em + 1px);
+        left: auto;
+    }
+    & .input-icon {
+        width: 100%;
+        height: 100%;
+    }
+}

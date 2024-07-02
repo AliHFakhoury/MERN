@@ -1,0 +1,58 @@
+@charset "utf-8";
+@import "../../frontend/Orogen Data-Design System.scss"; /* Token Values */
+
+.project-top-bar-wrapper{
+	display: grid;
+    grid-template-columns: $top-bar-grid-columns-with-status;
+    gap: $spacing-08;
+	padding-top: $spacing-055;
+    padding-bottom: $spacing-08;
+	position: sticky;
+	z-index: 9999;
+	top: 0;
+	right: 0;
+	left: 0;
+	background: linear-gradient(180deg, $body-colour 0%, $body-colour 70%, $clear 100%);
+}
+
+.project-search-input-wrap {
+	display: flex;
+	flex-direction: row;
+	background-color: $white;
+	border-radius: $round-02;
+}
+input[type=search] {
+	@include input-default;
+	&.project-search {
+		max-height: 2.5rem;
+		border: none;
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+		border-bottom-left-radius: $round-02;
+		border-top-left-radius: $round-02;
+		margin: 0;
+	}
+}
+.search-button{
+	margin: 0;
+	padding: 0;
+	width: 2.5rem;
+	height: 2.5rem;
+	background-color: $clear;
+	border-top-right-radius: $round-02;
+	border-bottom-right-radius: $round-02;
+	border-bottom-left-radius: 0;
+	border-top-left-radius: 0;
+	border: none;
+	&:hover {
+		background-color: unquote("#{$skyblue-50}"+"#{$opacity-40}");
+	}
+	:focus-visible {
+		@include focus-state
+	}
+	& .search-icon {
+		fill: $orogenblue-50;
+		width: 1.25rem;
+		height: 1.25rem;
+	}
+}

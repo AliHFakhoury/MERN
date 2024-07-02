@@ -1,0 +1,369 @@
+@import "./mixins.scss";
+/* 	
+	Table of Contents
+
+	1.	Colour
+	2.	Spacing
+	3.	Typography
+	4.	Motion
+	5.	Effects
+	6.	Utilities
+*/
+/* 	
+	Colour
+
+	1.1	Core Colours
+	1.2	Alert Colours
+	1.3	Tag Colours
+	1.4 Misc. Colours
+
+*/
+	// 	1.1 Core Colours
+
+$white: #ffffff;			// -5
+$rockgrey-05: #efefef;		// -4.5
+$rockgrey-10: #dedede;		// -4
+$rockgrey-15: #cecece;		// -3.5
+$rockgrey-20: #bebebe;		// -3
+$rockgrey-25: #aeaeae;		// -2.5
+$rockgrey-30: #9d9d9d;		// -2
+$rockgrey-35: #8d8d8d;		// -1.5
+$rockgrey-40: #7d7d7d;		// -1
+$rockgrey-45: #6c6c6c;		// -.5
+$rockgrey-50: #5c5c5c;		// Default
+$rockgrey-55: #535353;		// +.5
+$rockgrey-60: #4a4a4a;		// +1
+$rockgrey-65: #404040;		// +1.5
+$rockgrey-70: #373737;		// +2
+$rockgrey-75: #2e2e2e;		// +2.5
+$rockgrey-80: #252525;		// +3
+$rockgrey-85: #1c1c1c;		// +3.5
+$rockgrey-90: #121212;		// +4
+$rockgrey-95: #090909;		// +4.5
+$black: #000000;			// +5
+
+$orogenblue-05: #e7eafd;	// -4.5
+$orogenblue-10: #cfd5fa;	// -4
+$orogenblue-15: #b7c0f8;	// -3.5
+$orogenblue-20: #9fabf5;	// -3
+$orogenblue-25: #8796f3;	// -2.5
+$orogenblue-30: #6f81f0;	// -2
+$orogenblue-35: #576cee;	// -1.5
+$orogenblue-40: #3f57eb;	// -1
+$orogenblue-45: #2742e9;	// -.5
+$orogenblue-50: #0f2de6;	// Default
+$orogenblue-55: #0e29cf;	// +.5
+$orogenblue-60: #0c24b8;	// +1
+$orogenblue-65: #0b1fa1;	// +1.5
+$orogenblue-70: #091b8a;	// +2
+$orogenblue-75: #081773;	// +2.5
+$orogenblue-80: #06125c;	// +3
+$orogenblue-85: #040d45;	// +3.5
+$orogenblue-90: #03092e;	// +4
+$orogenblue-95: #010417;	// +4.5
+
+$skyblue-05: #f3faff;		// -4.5
+$skyblue-10: #e6f4ff;		// -4
+$skyblue-15: #daefff;		// -3.5
+$skyblue-20: #cde9ff;		// -3
+$skyblue-25: #c1e4ff;		// -2.5
+$skyblue-30: #b4deff;		// -2
+$skyblue-35: #a8d9ff;		// -1.5
+$skyblue-40: #9bd3ff;		// -1
+$skyblue-45: #8fceff;		// -.5
+$skyblue-50: #82c8ff;		// Default
+$skyblue-55: #75b4e6;		// +.5
+$skyblue-60: #68a0cc;		// +1
+$skyblue-65: #5b8cb3;		// +1.5
+$skyblue-70: #4e7899;		// +2
+$skyblue-75: #416480;		// +2.5
+$skyblue-80: #345066;		// +3
+$skyblue-85: #273c4c;		// +3.5
+$skyblue-90: #1a2833;		// +4
+$skyblue-95: #0d1419;		// +4.5
+
+	// 	1.2 Alert Colours
+
+$alert-red-10: #ffdad1;		// -4
+$alert-red-20: #ffb5a3;		// -3
+$alert-red-30: #ff9075;		// -2
+$alert-red-40: #ff6b47;		// -1
+$alert-red-50: #ff4619;		// Default
+$alert-red-60: #cc3814;		// +1
+$alert-red-70: #992a0f;		// +2
+$alert-red-80: #661c0a;		// +3
+$alert-red-90: #330e05;		// +4
+
+$alert-orange-10: #ffe6cc;	// -4
+$alert-orange-20: #ffcc99;	// -3
+$alert-orange-30: #ffb366;	// -2
+$alert-orange-40: #ff9933;	// -1
+$alert-orange-50: #FF8000;	// Default
+$alert-orange-60: #cc6600;	// +1
+$alert-orange-70: #994d00;	// +2
+$alert-orange-80: #663300;	// +3
+$alert-orange-90: #331a00;	// +4
+
+$alert-yellow-10: #fff1cc;	// -4
+$alert-yellow-20: #ffe299;	// -3
+$alert-yellow-30: #ffd466;	// -2
+$alert-yellow-40: #ffc533;	// -1
+$alert-yellow-50: #ffb700;	// Default
+$alert-yellow-60: #cc9200;	// +1
+$alert-yellow-70: #996e00;	// +2
+$alert-yellow-80: #664900;	// +3
+$alert-yellow-90: #332500;	// +4
+
+$alert-green-10: #d4f6eb;	// -4
+$alert-green-20: #a8eed7;	// -3
+$alert-green-30: #7de5c4;	// -2
+$alert-green-40: #51ddb0;	// -1
+$alert-green-50: #26d49c;	// Default
+$alert-green-60: #1eaa7d;	// +1
+$alert-green-70: #177f5e;	// +2
+$alert-green-80: #0f553e;	// +3
+$alert-green-90: #082a1f;	// +4
+
+	// 	1.3 User Colours
+
+	// 	These colours are used for thing like: custom tags, empty profiles,
+	// 	project backgrounds, etc
+
+$label-purple: #622f9c;
+$label-alt-purple: #e0d5eb;
+$label-forest: #347360;
+$label-alt-forest: #d6e3df;
+$label-yellow: #e1a100;
+$label-alt-yellow: #f9eccc;
+$label-orange: #e47300;
+$label-alt-orange: #fae3cc; 
+$label-ruby: #b1006a;
+$label-alt-ruby: #efcce1;
+$label-teal: #209fa2;
+$label-alt-teal: #d2ecec;
+$label-red: #b82400;
+$label-alt-red: #f1d3cc;
+$label-olive: #83862d;
+$label-alt-olive: #e6e7d5;
+$label-indigo: #002a8b;
+$label-alt-indigo: #ccd4e8;
+$label-burgundy: #650000;
+$label-alt-burgundy: #e0cccc;
+$label-green: #0c962d;
+$label-alt-green: #ceead5;
+$label-blue: #0998cc;
+$label-alt-blue: #ceeaf5;
+$label-tan: #938252;
+$label-alt-tan: #e9e6dc;
+$label-silver: #989898;
+$label-alt-silver: #eaeaea;
+$label-black: #1b1b1b;
+$label-alt-black: #d1d1d1;
+$label-pink: #c44dbb;
+$label-alt-pink: #f3dbf1; 
+
+	// 	1.4 Misc. Colours
+$clear: transparent;	// No Colour
+$text-disabled: $rockgrey-30;
+$disabled-background: $rockgrey-10;
+$disabled-background-destructive: $alert-red-20;
+$disabled-border-colour: $text-disabled;
+$focus-state-colour: $skyblue-50;
+$body-colour: $rockgrey-05;
+$gold-50: #e8cf44;
+
+	//	1.5 Transparent Levels
+$opacity-05: 05;
+$opacity-10: 10;
+$opacity-15: 15;
+$opacity-20: 20;
+$opacity-25: 25;
+$opacity-30: 30;
+$opacity-35: 35;
+$opacity-40: 40;
+$opacity-45: 45;
+$opacity-50: 50;
+$opacity-55: 55;
+$opacity-60: 60;
+$opacity-65: 65;
+$opacity-70: 70;
+$opacity-75: 75;
+$opacity-80: 80;
+$opacity-85: 85;
+$opacity-90: 90;
+$opacity-95: 95;
+
+/* 	
+	Spacing
+
+	2.1	Spacing
+*/
+	//	2.1 Spacing
+
+$spacing-01: 0.125rem;	// = 2px
+$spacing-02: 0.25rem;	// = 4px
+$spacing-025: 0.375rem;	// = 6px
+$spacing-03: 0.5rem;	// = 8px
+$spacing-04: 0.75rem;	// = 12px
+$spacing-05: 1rem;		// = 16px
+$spacing-055: 1.25rem;	// = 20px
+$spacing-06: 1.5rem;	// = 24px
+$spacing-07: 2rem;		// = 32px
+$spacing-075: 2.25rem;	// = 36px
+$spacing-08: 2.5rem;	// = 40px
+$spacing-09: 3rem;		// = 48px
+$spacing-10: 4rem;		// = 64px
+$spacing-11: 5rem;		// = 80px
+$spacing-12: 6rem;		// = 96px
+$spacing-13: 10rem;		// = 160px
+
+$spacing-page-margin-normal: 5rem;
+
+/* 	
+	Typography
+
+	3.1	Typeface
+	3.2	Scale
+	3.3	Styling
+	3.4 Type Colour
+*/
+	//	3.1 Typeface
+	@font-face {
+		src: url("../frontend/fonts/Cabin-Italic-VariableFont_wdth\,wght.ttf");
+		src: url("../frontend/fonts/Cabin-VariableFont_wdth\,wght.ttf");
+		font-family: "Cabin";
+	}
+	@font-face {
+		src: url("../frontend/fonts/labmono-regular-web.woff");
+		src: url("../frontend/fonts/labmono-regular-web.woff2");
+		font-family: "Lab Mono Web";
+	}
+	@font-face {
+		src: url("../frontend/fonts/D-DIN-Bold.otf");
+		src: url("../frontend/fonts/D-DIN.otf");
+		font-family: "D-Din"
+	}
+
+$fontfamily-cabin: 'Cabin', Tahoma, Helvetica, Arial, sans-serif;
+$fontfamily-ddin: 'D-Din', Helvetica, Arial, sans-serif;
+$fontfamily-labmono: 'Lab Mono Web', monospace;
+
+	//	3.2 Scale
+
+$typesize-01: 0.75rem;	// = 12px
+$typesize-02: 0.875rem;	// = 14px
+$typesize-03: 1rem;		// = 16px
+$typesize-04: 1.125rem;	// = 18px
+$typesize-05: 1.25rem;	// = 20px
+$typesize-06: 1.5rem;	// = 24px
+$typesize-07: 1.75rem;	// = 28px
+$typesize-08: 2rem;		// = 32px
+$typesize-09: 2.25rem;	// = 36px
+$typesize-10: 2.625rem;	// = 42px
+$typesize-11: 3rem;		// = 48px
+$typesize-12: 3.375rem;	// = 54px
+$typesize-13: 3.75rem;	// = 60px
+$typesize-14: 4.25rem;	// = 68px
+$typesize-15: 4.75rem;	// = 76px
+$typesize-16: 5.25rem;	// = 84px
+$typesize-17: 5.75rem;	// = 92px
+$h1-size: 2.027em;
+$h2-size: 1.802em;
+$h3-size: 1.602em;
+$h4-size: 1.424em;
+$h5-size: 1.266em;
+$h6-size: 1.125em;
+
+
+	//	3.3 Styling
+
+
+	//	3.4 Type Colour
+
+$text-colour-main: $rockgrey-90;
+
+/* 	
+	Motion
+
+	4.1	Keyframes
+	4.2 Easing-Speeds
+*/
+
+	//	4.2 Easing-Speeds
+
+
+/* 	
+	Effects
+
+	5.1	Shadows
+	5.2	Border
+	5.3 Corner Radius
+*/
+	//	5.1 Shadows
+
+$shadow-level-01: 0px 3px 4px -1.5px rgba(0,0,0,0.2);
+$shadow-level-02: 0px 4px 8px -2px rgba(0,0,0,0.2);
+$shadow-level-03: 0px 5px 12px -2.5px rgba(0,0,0,0.2);
+$shadow-level-04: 0px 6px 16px -3px rgba(0,0,0,0.2);
+
+	//
+
+	//	5.2 Border
+
+$border-01: 1px;
+$border-02: 2px;
+$border-03: 0.25rem;	// = 4px
+$border-04: 0.5rem;		// = 8px
+$border-05: 0.75rem;	// = 12px
+$border-06: 1rem;		// = 16px
+$border-07: 1.5rem;		// = 24px
+$border-08: 2rem;		// = 32px
+
+	//	5.3 Corner Radius
+
+
+$round-01: 2px;
+$round-02: 4px;
+$round-03: 8px;
+$round-04: 12px;
+$round-05: 16px;
+$round-06: 24px;
+$round-07: 32px;
+
+
+/* 	
+	Utilities
+
+	6.1	Aspect Ratios
+	6.2 Status Icons
+	6.3 Tooltips
+	6.4 Help Text
+	6.5 Misc
+	6.6 Layout Parts
+*/
+	//	6.5 Misc Utilities
+
+$focus-state-width: 3px;
+$focus-state-outline: $focus-state-width solid $focus-state-colour;
+
+
+	//	6.6 Layout Parts
+	//							  border + wrap + spacer + wrap + spacer + wrap + border
+$app-status-component-width: calc(1px + (2.5rem - 2px) + 1px + (2.5rem - 2px) + 1px + (2.5rem - 2px) + 1px);
+$top-bar-grid-columns: 1fr minmax(auto, 330px);
+$top-bar-grid-columns-with-status: 1fr $app-status-component-width minmax(auto, 330px);
+$main-container-width: 1400px;
+
+
+	//	6.1 Aspect Ratios
+	//	6.1 Aspect Ratios
+
+	//	4.1 Keyframes
+
+@keyframes focus-state {
+	from {outline-width: 0px; outline-color: transparent;}
+	to {outline-width: $focus-state-width; outline-color: $focus-state-colour;}
+}
+
+	//	7.1 IBM Carbon Icons
+

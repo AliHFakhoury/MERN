@@ -1,0 +1,66 @@
+@charset "utf-8";
+@import "../../frontend/Orogen Data-Design System.scss"; /* Token Values */
+
+// This is to make the trash can icon go left but I'm almost 99.999% sure this isn't the way
+.idkwhattodoplzhelp {
+	display: flex;
+}
+
+
+// This is for Accordion List
+
+.accordion-wrapper {
+	display: grid;
+	width: 100%;
+}
+
+// This is for Accordion Item
+
+.accordion-item-wrapper {
+	display: block;
+	width: 100%;
+	background-color: $white;
+}
+.accordion-item {
+	width: 100%;
+}
+.accordion-header {
+	width: 100%;
+}
+.accordion-header-content {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: $spacing-055;
+}
+.accordion-chevron {
+	height: $spacing-06;
+	width: $spacing-06;
+	display: inline-block;
+	transition: all 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.accordion-expand {
+	display: block;
+	overflow: hidden;
+	width: 100%;
+	height: auto;
+	transition: all 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.accordion-expand-content {
+	padding: $spacing-055;
+	&:has(.divider-line) {
+		padding-top: 0;
+	}
+}
+.divider-line {
+	width: 100%;
+	border-bottom-style: solid;
+	border-bottom-width: $border-01;
+	border-bottom-color: $rockgrey-15;
+	margin-bottom: $spacing-055;
+}
+
+@keyframes caret-rotate {
+	from {transform: rotate(180);}
+	to {transform: rotate(0);}
+}

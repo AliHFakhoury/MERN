@@ -1,0 +1,106 @@
+@charset "utf-8";
+
+@mixin focus-state {
+	outline: $focus-state-outline;
+	animation-name: focus-state;
+	animation-duration: 300ms;
+}
+@mixin project-page-wrapper {
+	margin-left: calc($spacing-04 + 2.5rem + $spacing-04);
+    padding-top: 0;
+    padding-right: $spacing-05;
+    padding-bottom: $spacing-08;
+    padding-left: $spacing-06;
+}
+@mixin input-default {
+	padding: 0.5em .75em;
+	min-width: 20ch;
+	width: 100%;
+	flex-grow: 1;
+	border-radius: $round-02;
+	border-color: $rockgrey-15;
+	border-width: $border-01;
+	border-style: solid;
+	box-shadow: none;
+	font-family: $fontfamily-ddin;
+	font-weight: 400;
+	font-size: $typesize-04;
+	letter-spacing: 0.05em;
+	line-height: 1.2;
+	overflow: hidden;
+	&.error {
+		border-color: $alert-red-50;
+	}
+	&:focus-visible {
+		@include focus-state
+	}
+	&[type="password"] {
+		font-family: $fontfamily-ddin;
+	}
+	&::placeholder {
+		color: $rockgrey-20;
+	}
+}
+@mixin flex-form-wrap {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	& > * {
+		flex-grow: 0;
+		flex-shrink: 1;
+		flex-basis: auto;
+		}
+}
+@mixin form-section-heading {
+    font-size: $typesize-04;
+    font-weight: 600;
+    margin-bottom: $spacing-06;
+}
+@mixin label-larger {
+	font-size: 1rem;
+    line-height: 1.1;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: capitalize;
+    & .required {
+        color: $alert-red-50;
+        font-weight: 600;
+    }
+}
+@mixin inside-scrollbar-dark {
+	&::-webkit-scrollbar-track {
+		background-color: $clear;
+	}
+	&::-webkit-scrollbar {
+		width: 7px;
+		height: 7px;
+		border-radius: 100vw;
+		background-color: unquote("#{$body-colour}"+"#{$opacity-25}");
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: unquote("#{$body-colour}"+"#{$opacity-85}");
+		border-radius: 100vw;
+		&:hover {
+			background-color: $body-colour;
+		}
+	}
+}
+@mixin inside-scrollbar-light {
+	&::-webkit-scrollbar-track {
+		background-color: $clear;
+	}
+	&::-webkit-scrollbar {
+		width: 7px;
+		height: 7px;
+		border-radius: 100vw;
+		background-color: unquote("#{$text-colour-main}"+"#{$opacity-20}");
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: unquote("#{$text-colour-main}"+"#{$opacity-50}");
+		border-radius: 100vw;
+		&:hover {
+			background-color: unquote("#{$text-colour-main}"+"#{$opacity-75}");
+		}
+	}
+}

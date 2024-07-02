@@ -1,0 +1,74 @@
+@charset "utf-8";
+@use '../../../../node_modules/@carbon/styles';
+@use '../../../../node_modules/@carbon/grid';
+
+@import "../../../frontend/Orogen Data-Design System.scss"; /* Token Values */
+
+@include grid.flex-grid();
+
+.sample-input-wrapper {
+    display: block;
+    border-style: solid;
+    border-width: $border-01;
+    border-color: $rockgrey-15;
+    border-radius: $round-02;
+    :last-child::after {
+        border-bottom-width: 0;
+        border-bottom-color: transparent;
+    }
+}
+.sample-input-item {
+    display: grid;
+    width: 100%;
+    padding: $spacing-03;
+    align-items: center;
+    grid-auto-columns: 1fr;
+    grid-column-gap: $spacing-02;
+    grid-row-gap: 0px;
+    grid-template-columns: 1.25rem 1fr 1fr;
+    grid-template-rows: auto;
+    position: relative;
+    &:hover {
+        background-color: $rockgrey-10
+      }
+    &::after{
+        content: "";
+        width: 100%;
+        position: absolute;
+        top: auto;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        border-bottom-style: solid;
+        border-bottom-width: $border-01;
+        border-bottom-color: $rockgrey-15;
+    }
+    & .sample-input-sort {
+        opacity: .25;
+        width: 100%;
+        &:hover {
+            opacity: .6;
+        }
+        &:active {
+            opacity: 1;
+        }
+    }
+  }
+.sample-input-inner {
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    gap: 0.5rem;
+}
+.sample-input-type-icon {
+    width: 1.375rem;
+    height: 1.375rem;
+    object-fit: contain;
+    object-position: 50% 50%;
+    display: inline-block;
+}
+.sample-input-type-name {
+    display: inline-block;
+    font-size: $typesize-04;
+}

@@ -1,0 +1,60 @@
+@charset "utf-8";
+@import "../../frontend/Orogen Data-Design System.scss"; /* Token Values */
+
+.input-wrapper {
+	margin-bottom: $spacing-055;
+	display: flex;
+	flex-direction: column;
+    align-items: start;
+    justify-content: start;
+	width: 100%;
+}
+.input-label-wrapper{
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	gap: $spacing-04;
+	font-size: 13px;
+    line-height: 1.1;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: capitalize;
+	margin-bottom: 5px;
+    &:has(.input-label-info) {
+        margin-bottom: 1px;
+    }
+}
+.input-label-wrapper-inner {
+	display: flex;
+	align-items: center;
+	gap: 0.375em;
+}
+.input-label-info {
+	width: $spacing-05;
+	height: $spacing-05;
+	object-fit: contain;
+    opacity: 0.80;
+    &:hover {
+        opacity: 1;
+    }
+}
+.label-link {
+    color: $orogenblue-50;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+.input-wrapper-inner {
+	width: 100%;
+	position: relative;
+}
+.input-help-text {
+    padding-top: $spacing-02;
+	color: $rockgrey-50;
+	font-size: $typesize-02;
+}
+.inline-link {
+	text-decoration: underline;
+	color: inherit;
+	font-weight: 600;
+}

@@ -1,0 +1,44 @@
+@charset "utf-8";
+@import "../../frontend/Orogen Data-Design System.scss"; /* Token Values */
+
+.drawer {
+    display: block;
+    padding: $spacing-075;
+    position: fixed;
+    z-index: 10002;
+    width: 100%;
+    max-width: calc((2.5rem + 1rem) + (330px + $app-status-component-width));
+    background-color: $white;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: auto;
+    box-shadow: $shadow-level-04;
+    & .close {
+        position: absolute;
+        top: $spacing-055;
+        right: $spacing-05;
+        width: 2.5rem;
+        height: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        border-radius: $round-02;
+        cursor: pointer;
+        &:hover {
+            background-color: unquote("#{$black}"+"#{$opacity-15}");
+        }
+        &:active {
+            background-color: unquote("#{$black}"+"#{$opacity-25}");
+        }
+        &:focus-visible {
+            @include focus-state;
+        }
+        & .icon {
+            width: 60%;
+            height: 60%;
+            fill: $black;
+        }
+    }
+}

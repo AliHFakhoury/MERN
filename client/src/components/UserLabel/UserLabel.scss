@@ -1,0 +1,263 @@
+@charset "utf-8";
+@import "../../frontend/Orogen Data-Design System.scss"; /* Token Values */
+
+.user-label {
+	display: inline-flex;
+	align-content: center;
+	padding-top: 0.375em;
+	padding-right: 0.45em;
+	padding-bottom: 0.25em;
+	padding-left: 0.45em;
+	border-radius: 2px;
+	background-color: $label-alt-purple;
+	color: $label-purple;
+	font-size: 11px;
+	line-height: 1;
+	font-weight: 600;
+	font-family: $fontfamily-ddin;
+	letter-spacing: 0.75px;
+	text-transform: uppercase;
+	white-space: nowrap;
+	& .edit-button {
+		height: 1em;
+		width: 1em;
+		margin-left: 0.45em;
+		opacity: 0.6;
+		display: none;
+		stroke: currentColor;
+		stroke-width: 2.5;
+		&:hover {
+			opacity: 1;
+		}
+	}
+	&:hover .edit-button {
+		display: inline-block;
+	}
+
+
+
+	&.purple{
+		background-color: $label-purple;
+		color: $label-alt-purple;
+		& .edit-button {
+			fill: currentColor;
+		}
+	}
+	&.alt-purple{
+		background-color: $label-alt-purple;
+		color: $label-purple;
+		& .edit-button {
+			fill: currentColor;
+		}
+	}
+	&.forest{
+		background-color: $label-forest;
+		color: $label-alt-forest;
+		& .edit-button {
+			fill: currentColor;
+		}
+	}
+	&.alt-forest{
+		background-color: $label-alt-forest;
+		color: $label-forest;
+		& .edit-button {
+			fill: currentColor;
+		}
+	}
+	&.yellow{
+		background-color: $label-yellow;
+		color: $label-alt-yellow;
+		& .edit-button {
+			fill: currentColor;
+		}
+	}
+	&.alt-yellow{
+		background-color: $label-alt-yellow;
+		color: $label-yellow;
+		& .edit-button {
+			fill: currentColor;
+		}
+	}
+	&.orange{
+		background-color: $label-orange;
+		color: $label-alt-orange;
+		& .edit-button {
+			fill: currentColor;
+		}
+	}
+	&.alt-orange{
+		background-color: $label-alt-orange;
+		color: $label-orange;
+		& .edit-button {
+			fill: currentColor;
+		}
+	}
+	&.ruby{
+		background-color: $label-ruby;
+		color: $label-alt-ruby;
+		& .edit-button {
+			fill: currentColor;
+		}
+	}
+	&.alt-ruby{
+		background-color: $label-alt-ruby;
+		color: $label-ruby;
+		& .edit-button {
+			fill: currentColor;
+		}
+	}
+	&.teal{
+		background-color: $label-teal;
+		color: $label-alt-teal;
+		& .edit-button {
+			fill: currentColor;
+		}
+	}
+	&.alt-teal{
+		background-color: $label-alt-teal;
+		color: $label-teal;
+		& .edit-button {
+			fill: currentColor;
+		}
+	}
+	&.red{
+		background-color: $label-red;
+		color: $label-alt-red;
+		& .edit-button {
+			fill: currentColor;
+		}
+	}
+	&.alt-red{
+		background-color: $label-alt-red;
+		color: $label-red;
+		& .edit-button {
+			fill: currentColor;
+		}
+	}
+	&.olive{
+		background-color: $label-olive;
+		color: $label-alt-olive;
+		& .edit-button {
+			fill: currentColor;
+		}
+	}
+	&.alt-olive{
+		background-color: $label-alt-olive;
+		color: $label-olive;
+		& .edit-button {
+			fill: currentColor;
+		}
+	}
+	&.indigo{
+		background-color: $label-indigo;
+		color: $label-alt-indigo;
+		& .edit-button {
+			fill: currentColor;
+		}
+	}
+	&.alt-indigo{
+		background-color: $label-alt-indigo;
+		color: $label-indigo;
+		& .edit-button {
+			fill: currentColor;
+		}
+	}
+	&.burgundy{
+		background-color: $label-burgundy;
+		color: $label-alt-burgundy;
+		& .edit-button {
+			fill: currentColor;
+		}
+	}
+	&.alt-burgundy{
+		background-color: $label-alt-burgundy;
+		color: $label-burgundy;
+		& .edit-button {
+			fill: currentColor;
+		}
+	}
+	&.green{
+		background-color: $label-green;
+		color: $label-alt-green;
+		& .edit-button {
+			fill: currentColor;
+		}
+	}
+	&.alt-green{
+		background-color: $label-alt-green;
+		color: $label-green;
+		& .edit-button {
+			fill: currentColor;
+		}
+	}
+	&.blue{
+		background-color: $label-blue;
+		color: $label-alt-blue;
+		& .edit-button {
+			fill: currentColor;
+		}
+	}
+	&.alt-blue{
+		background-color: $label-alt-blue;
+		color: $label-blue;
+		& .edit-button {
+			fill: currentColor;
+		}
+	}
+	&.tan{
+		background-color: $label-tan;
+		color: $label-alt-tan;
+		& .edit-button {
+			fill: currentColor;
+		}
+	}
+	&.alt-tan{
+		background-color: $label-alt-tan;
+		color: $label-tan;
+		& .edit-button {
+			fill: currentColor;
+		}
+	}
+	&.silver{
+		background-color: $label-silver;
+		color: $label-alt-silver;
+		& .edit-button {
+			fill: currentColor;
+		}
+	}
+	&.alt-silver{
+		background-color: $label-alt-silver;
+		color: $label-silver;
+		& .edit-button {
+			fill: currentColor;
+		}
+	}
+	&.black{
+		background-color: $label-black;
+		color: $label-alt-black;
+		& .edit-button {
+			fill: currentColor;
+		}
+	}
+	&.alt-black{
+		background-color: $label-alt-black;
+		color: $label-black;
+		& .edit-button {
+			fill: currentColor;
+		}
+	}
+	&.pink{
+		background-color: $label-pink;
+		color: $label-alt-pink;
+		& .edit-button {
+			fill: currentColor;
+		}
+	}
+	&.alt-pink{
+		background-color: $label-alt-pink;
+		color: $label-pink;
+		& .edit-button {
+			fill: currentColor;
+		}
+	}
+}

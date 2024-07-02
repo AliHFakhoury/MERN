@@ -1,0 +1,40 @@
+@import "..\\node_modules\\cq-prolyfill\\mixins.scss";
+
+
+
+.test-class-69 {
+    width: 30%;
+    height: 30%;
+    background-color: red;
+}
+
+.test-class-69 {
+	@include cq-prolyfill("width >= 100px") {
+        background-color: green;
+
+	}
+}
+// .test-class-69 {
+//     width: 200px;
+//     height: 200px;
+//     // background-color: black;
+//     &:hover {
+//         background-color: grey;
+//     }
+//     &:container(width:180px) {
+//         background-color: blue;
+//     }
+// }
+.test-class-69 {
+    width: 600px;
+    height: 600px;
+    background-color: black;
+
+    &:hover {
+        background-color: grey;
+    }
+}
+
+.test-class-69:container(width=500px) {
+    background-color: green;
+}

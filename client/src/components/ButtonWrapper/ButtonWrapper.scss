@@ -1,0 +1,18 @@
+@charset "utf-8";
+@import "../../frontend/Orogen Data-Design System.scss"; /* Token Values */
+
+.button-wrapper {
+    width: 100%;
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    &.left {
+        justify-content: left;
+    }
+    &.center {
+        justify-content: center;
+    }
+    &.right{
+        justify-content: right;
+    }
+}

@@ -1,0 +1,249 @@
+@charset "utf-8";
+@import "../../frontend/Orogen Data-Design System.scss"; /* Token Values */
+
+.button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: .5em;
+	padding: .375em 1.125em;
+	margin: 0%;
+	min-height: calc($border-02 + .375em + ($typesize-03 * 1.3) + .375em + $border-02);	//borders + padding + text (all vertical)
+	font-weight: 600;
+	font-size: $typesize-03;
+	letter-spacing: 0.02em;
+	line-height: 1.3;
+	text-decoration: none;
+	color: $text-colour-main;
+	background-color: transparent;
+	border-radius: $round-02;
+	border-width: $border-02;
+	border-style: solid;
+	border-color: $clear;
+	&.small {
+		font-size: $typesize-02;
+		letter-spacing: 0.04em;
+		min-height: calc($border-02 + .375em + ($typesize-02 * 1.3) + .375em + $border-02);	//borders + padding + text (all vertical)
+	}
+	// &.large {
+	// 	font-size: $typesize-06;
+	// 	min-height: calc($border-02 + .375em + ($typesize-06 * 1.3) + .375em + $border-02);	//borders + padding + text (all vertical)
+
+	// }
+	&:focus-visible {
+		@include focus-state
+	}
+	&.primary {
+		color: $white;
+		background-color: $orogenblue-50;
+		&:hover {
+			background-color: $orogenblue-45;
+		}
+		&:active {
+			background-color: $orogenblue-55;
+		}
+		&:disabled {
+			background-color: $disabled-background !important;
+			color: $text-disabled !important;
+			cursor: not-allowed;
+		}
+		&.sq-button {
+			background-color: $orogenblue-50;
+			&:hover {
+				background-color: $orogenblue-45;
+			}
+			&:active {
+				background-color: $orogenblue-55;
+			}
+		}
+	}
+	&.secondary {
+		color: $white;
+		background-color: $text-colour-main;
+		&:hover {
+			background-color: $rockgrey-70;
+		}
+		&:active {
+			background-color: $black;
+		}
+		&:disabled {
+			background-color: $disabled-background !important;
+			color: $text-disabled !important;
+			cursor: not-allowed;
+		}
+		&.sq-button {
+			background-color: $text-colour-main;
+			&:hover {
+				background-color: $rockgrey-70;
+			}
+			&:active {
+				background-color: $black;
+			}
+		}
+	}
+	&.tertiary {
+		color: $text-colour-main;
+		border-color: $text-colour-main;
+		&:hover {
+			border-color: $rockgrey-70;
+		}
+		&:active {
+			background-color: unquote("#{$text-colour-main}"+"#{$opacity-40}");
+		}
+		&:disabled {
+			border-color: $disabled-background !important;
+			color: $text-disabled !important;
+			cursor: not-allowed;
+		}
+		&.sq-button {
+			background-color: $clear;
+			border-color: $text-colour-main;
+			border-style: solid;
+			border-width: $border-02;
+			&:hover {
+				background-color: $clear;
+				border-color: $rockgrey-70;
+			}
+			&:active {
+				background-color: unquote("#{$text-colour-main}"+"#{$opacity-40}");
+			}
+		}
+	}
+	&.unstyled {
+		color: inherit;
+		text-decoration: none;
+		&:hover {
+			color: $black;
+			text-decoration: underline;
+		}
+		&:active {
+			color: $orogenblue-50;
+		}
+		&:disabled {
+			color: $text-disabled !important;
+			cursor: not-allowed;
+		}
+		&.sq-button {
+			background-color: inherit;
+			&:hover {
+				background-color: unquote("#{$text-colour-main}"+"#{$opacity-10}");
+			}
+			&:active {
+				color: $orogenblue-50;
+				background-color: $clear;
+			}
+		}
+	}
+	&.destructive {
+		background-color: $alert-red-60;
+		color: $alert-red-10;
+		&:hover {
+			background-color: $alert-red-50;
+			color: $white;
+		}
+		&:active {
+			background-color: $alert-red-70;
+		}
+		&:disabled {
+			background-color: $disabled-background-destructive !important;
+			color: $white !important;
+			cursor: not-allowed;
+		}
+		&.sq-button {
+			background-color: $alert-red-60;
+			&:hover {
+				background-color: $alert-red-50;
+			}
+			&:active {
+				background-color: $alert-red-70;
+			}
+			&:disabled .button-icon {
+				fill: $white !important;
+			}
+		}
+	}
+	& .button-icon {
+		width: 1.5em;
+		height: 1.5em;
+		margin-top: -0.25em;
+		margin-bottom: -0.25em;
+		flex-grow: 0;
+		flex-shrink: 1;
+		flex-basis: auto;
+		object-fit: contain;
+	}
+	& > .button-icon {	// Optical alignment depending if the button is on the left or right
+		&:first-child {
+			margin-left: -0.5em;
+		}
+		&:last-child {
+			margin-right: -0.5em;
+		}
+		&:only-child {
+			margin-right: 0;
+			margin-left: 0;
+		}
+	}
+	&.sq-button {
+    	min-width: 2.5rem;
+    	min-height: 2.5rem;
+    	padding: 0;
+    	border-radius: $round-02;
+    	background-color: $white;
+    	display: flex;
+    	align-items: center;
+    	justify-content: center;
+    	flex-shrink: 1;
+    	&:hover {
+        	background-color: unquote("#{$white}"+"#{$opacity-90}");
+    	}
+		&:active {
+			background-color: unquote("#{$white}"+"#{$opacity-40}");
+		}
+		&:disabled {
+			background-color: $disabled-background;
+			cursor: not-allowed;
+			& .button-icon {
+				fill: $text-disabled;
+			}
+		}
+		&.on-colour {
+			background-color: unquote("#{$white}"+"#{$opacity-40}");
+			&:hover {
+				background-color: unquote("#{$white}"+"#{$opacity-90}");
+			}
+			&:active {
+				background-color: $white;
+			}
+			&:disabled {
+				background-color: unquote("#{$white}"+"#{$opacity-10}");
+				& .button-icon {
+					fill: unquote("#{$rockgrey-50}"+"#{$opacity-50}");
+				}
+			}
+			&.black {
+				background-color: unquote("#{$white}"+"#{$opacity-20}");
+				&:hover {
+					background-color: unquote("#{$white}"+"#{$opacity-40}");
+				}
+				&:active {
+					background-color: unquote("#{$white}"+"#{$opacity-60}");
+				}
+				&:disabled {
+					background-color: unquote("#{$white}"+"#{$opacity-05}");
+					& .button-icon {
+						fill: unquote("#{$white}"+"#{$opacity-45}");
+					}
+				}
+				& .button-icon {
+					fill: $white;
+				}
+			}
+		}
+    	& .button-icon {
+        	width: 1.5rem;
+        	height: 1.5rem;
+			margin: 0;
+    	}
+	}	
+}

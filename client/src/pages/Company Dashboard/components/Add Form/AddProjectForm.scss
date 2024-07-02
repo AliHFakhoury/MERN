@@ -1,0 +1,9 @@
+@import "../../../../frontend/Orogen Data-Design System.scss"; /* Token Values */
+
+.form-wrap {
+    @include flex-form-wrap;
+    min-width: 24rem;
+}
+.form-section-heading {
+    @include form-section-heading;
+}

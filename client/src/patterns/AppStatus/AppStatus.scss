@@ -1,0 +1,89 @@
+@charset "utf-8";
+@import "../../frontend/Orogen Data-Design System.scss"; /* Token Values */
+
+.status-bar {
+	display: flex;
+	align-items: center;
+	justify-content: right;
+	border-style: solid;
+	border-width: $border-01;
+	border-color: $rockgrey-15;
+	border-radius: $round-02;
+	height: 2.5rem;
+	overflow: hidden;
+}
+.status-wrap {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: calc(2.5rem - 2px);
+	height: calc(2.5rem - 2px);
+	border: none;
+	padding: 0;
+	&:focus-visible {
+		@include focus-state	
+	}
+}
+.status-icon {
+	fill: $rockgrey-35;
+	width: 60%;
+	height: 60%;
+	object-fit: contain;
+	&:hover {
+		fill: $black;
+	}
+	&.good {
+		fill: $alert-green-50;
+	}
+	&.syncing {
+		fill: $rockgrey-15;
+		-webkit-animation: sync-rotating 2.5s linear infinite;
+		-moz-animation: sync-rotating 2.5s linear infinite;
+		-ms-animation: sync-rotating 2.5s linear infinite;
+		-o-animation: sync-rotating 2.5s linear infinite;
+		animation: sync-rotating 2.5s linear infinite;
+	}
+	&.warning{
+		fill: $alert-yellow-50;
+	}
+	&.error{
+		fill: $alert-red-50;
+	}
+	&.no-connection{
+		fill: $alert-red-50;
+	}
+}
+.status-spacer {
+	height: 65%;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: $rockgrey-15;
+}
+@-webkit-keyframes sync-rotating /* Safari and Chrome */ {
+	from {
+	  -webkit-transform: rotate(360deg) scale(-1, 1);;
+	  -o-transform: rotate(360deg) scale(-1, 1);
+	  transform: rotate(360deg) scale(-1, 1);
+	}
+	to {
+	  -webkit-transform: rotate(0deg) scale(-1, 1);
+	  -o-transform: rotate(0deg) scale(-1, 1);
+	  transform: rotate(0deg) scale(-1, 1);
+	}
+  }
+  @keyframes sync-rotating {
+	from {
+	  -ms-transform: rotate(-360deg) scale(-1, 1);
+	  -moz-transform: rotate(-360deg) scale(-1, 1);
+	  -webkit-transform: rotate(-360deg) scale(-1, 1);
+	  -o-transform: rotate(-360deg) scale(-1, 1);
+	  transform: rotate(-360deg) scale(-1, 1);
+	}
+	to {
+	  -ms-transform: rotate(0deg) scale(-1, 1);
+	  -moz-transform: rotate(0deg) scale(-1, 1);
+	  -webkit-transform: rotate(0deg) scale(-1, 1);
+	  -o-transform: rotate(0deg) scale(-1, 1);
+	  transform: rotate(0deg) scale(-1, 1);
+	}
+  }

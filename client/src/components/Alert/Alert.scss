@@ -1,0 +1,105 @@
+@charset "utf-8";
+@import "../../frontend/Orogen Data-Design System.scss"; /* Token Values */
+
+.alert-banner {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: left;
+	grid-column-gap: 0.5rem;
+	overflow: hidden;
+	padding: 0.5rem 0.75rem 0.5rem 0;
+	padding-left: calc(0.75rem + 4px);
+	margin: 0.5rem 0;
+	border-style: solid;
+	border-width: $border-01;
+	border-color: $rockgrey-50;
+	border-radius: $round-02;
+	background-color: $white;
+	color: $black;
+	font-size: $typesize-02;
+	line-height: 1.2;
+	font-weight: 500;
+	& .colour-bar {
+		background-color: $rockgrey-50;
+		display: block;
+		width: 5px;
+		height: 100%;
+		position: absolute;
+		top: 0%;
+		right: auto;
+		bottom: 0%;
+		left: 0%;
+		margin-left: -1px;
+	}
+	& .alert-banner-icon {
+		width: $spacing-055;
+		height: $spacing-055;
+		object-fit: contain;
+		fill: $black;
+	}
+	&:has(.alert-banner-icon) {
+		padding-left: 0.5rem;
+		& .colour-bar {
+			display: none;
+		}
+	}
+	&.neutral {
+		border-color: $skyblue-50;
+		background-color: unquote("#{$skyblue-50}"+"#{$opacity-20}");
+		color: $skyblue-80;
+		& .colour-bar {
+			background-color: $skyblue-50;
+		}
+		& .alert-banner-icon {
+			fill: $skyblue-80;
+		}
+	}
+
+	$test : unquote("#{$alert-red-50}"+"#{$opacity-20}");
+
+	&.warning {
+		border-color: $alert-yellow-50;
+		background-color: unquote("#{$alert-yellow-50}"+"#{$opacity-20}");
+		color: $alert-yellow-80;
+		& .colour-bar {
+			background-color: $alert-yellow-50;
+		}
+		& .alert-banner-icon {
+			fill: $alert-yellow-80;
+		}
+	}
+	&.warning-serious {
+		border-color: $alert-orange-50;
+		background-color: unquote("#{$alert-orange-50}"+"#{$opacity-20}");
+		color: $alert-orange-80;
+		& .colour-bar {
+			background-color: $alert-orange-50;
+		}
+		& .alert-banner-icon {
+			fill: $alert-orange-80;
+		}
+	}
+	&.danger {
+		border-color: $alert-red-50;
+		background-color: unquote("#{$alert-red-50}"+"#{$opacity-20}");
+		color: $alert-red-80;
+		& .colour-bar {
+			background-color: $alert-red-50;
+		}
+		& .alert-banner-icon {
+			fill: $alert-red-80;
+		}
+	}
+	&.success {
+		border-color: $alert-green-50;
+		background-color: unquote("#{$alert-green-50}"+"#{$opacity-20}");
+		color: $alert-green-80;
+		& .colour-bar {
+			background-color: $alert-green-50;
+		}
+		& .alert-banner-icon {
+			fill: $alert-green-80;
+		}
+	}
+}

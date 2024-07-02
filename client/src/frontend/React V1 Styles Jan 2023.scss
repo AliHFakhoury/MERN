@@ -1,0 +1,171 @@
+ /* eslint-disable */
+
+
+@charset "utf-8";
+@import "Orogen Data-Design System.scss"; /* Token Values */
+
+/* SCSS Document */
+* {
+	box-sizing: border-box;
+}
+html{
+	font-family: $fontfamily-cabin;
+	font-size: 16px;
+}
+// .input {
+// 	padding: 0.5em .75em;
+// 	margin-bottom: $spacing-04;
+// 	width: 100%;
+// 	border-radius: $round-02;
+// 	border-color: $rockgrey-15;
+// 	border-width: $border-01;
+// 	border-style: solid;
+// 	box-shadow: none;
+// 	font-family: $fontfamily-ddin;
+// 	font-weight: 400;
+// 	font-size: $typesize-04;
+// 	letter-spacing: 0.04em;
+// 	&.error {
+// 		border-color: $alert-red-50;
+// 	}
+// 	&:focus-visible {
+// 		@include focus-state
+// 	}
+// 	&[type="password"] {
+// 		font-family: $fontfamily-ddin;
+// 	}
+// 	&.with-options {
+// 		padding: 0;
+// 		display: flex;
+// 		flex-direction: row;
+// 	}
+// 	&.options {
+// 		border-color: transparent;
+// 		border-width: 0;
+// 		margin-bottom: 0;
+// 		&.right {
+// 			border-right: $rockgrey-10 solid $border-01;
+// 			border-top-right-radius: 0;
+// 			border-bottom-right-radius: 0;
+// 		}
+// 		&.left {
+// 			border-left: $rockgrey-10 solid $border-01;
+// 			border-top-left-radius: 0;
+// 			border-bottom-left-radius: 0;
+// 		}
+// 	}
+// }
+// .input-option-button-wrapper {
+// 	display: flex;
+// 	flex-wrap: nowrap;
+// 	align-items: center;
+// 	gap: .375em;
+// 	padding: 0.25em 0.5em;
+// 	background-color: $white;
+// }
+// .input-option-button {
+// 	width: 1.25rem;
+// 	height: 1.25rem;
+// 	border: transparent solid $border-01;
+// 	background-color: transparent;
+// 	border-radius: $border-03;
+// 	&.selection {
+// 		width: auto;
+// 		display: flex;
+// 		align-items: center;
+// 		gap: 0.25rem;
+// 		padding: 0.5em;
+// 		font-size: $typesize-01;
+// 		font-family: $fontfamily-labmono;
+// 		background-color: $rockgrey-05;
+// 	}
+// 	&:hover {
+// 		background-color: $rockgrey-05;
+// 	}
+// }
+// .selection-caret {
+// 	width: 1em;
+// 	height: 1em;
+// }
+// .input-wrapper {
+// 	margin-bottom: $spacing-04;
+// 	display: flex;
+// 	flex-direction: column;
+// 	width: 100%;
+// }
+// .input-label-wrapper{
+// 	display: flex;
+// 	justify-content: space-between;
+// 	align-items: baseline;
+// 	gap: $spacing-04;
+// 	font-size: 13px;
+//     line-height: 1.1;
+//     font-weight: 600;
+//     letter-spacing: 0.02em;
+//     text-transform: capitalize;
+// 	margin-bottom: 5px;
+// }
+// .input-label-wrapper-inner {
+// 	display: flex;
+// 	align-items: center;
+// 	gap: 0.375em;
+// }
+// .input-label-info {
+// 	width: $spacing-05;
+// 	height: $spacing-05;
+// 	object-fit: contain;
+// }
+// .label-link {
+//     color: $orogenblue-50;
+//     &:hover {
+//         text-decoration: underline;
+//     }
+// }
+// .input-wrapper-inner {
+// 	width: 100%;
+// }
+// .input-help-text {
+// 	color: $rockgrey-50;
+// 	font-size: $typesize-02;
+// }
+// .has-tool-tip {
+// 	position: relative;
+// 	display: inline-block;
+// }
+// .switch {
+// 	height: 1.875rem;
+// 	width: 3.5rem;
+// 	display: flex;
+// 	align-items: center;
+// 	border-radius: 0.875rem;
+// 	background-color: $rockgrey-05;
+// 	border-width: $border-02;
+// 	border-style: solid;
+// 	border-color: $rockgrey-10;
+// 	padding: .25rem;
+// 	&.active {
+// 		background-color: $alert-green-50;
+// 		border-color: $alert-green-20;
+// 	}
+// 	&:focus-visible {
+// 		outline: $focus-state-outline;
+// 		animation-name: focus-state;
+// 		animation-duration: 300ms;
+// 	}
+// }
+// .switch-handle {
+// 	width: 1.125rem;
+// 	height: 1.125rem;
+// 	margin: 0 auto 0 0;
+// 	border-radius: 100vw;
+// 	background-color: $rockgrey-50;
+// 	&.active {
+// 		background-color: $alert-green-80;
+// 		margin: 0 0 0 auto;
+// 	}
+// }
+// .inline-link {
+// 	text-decoration: underline;
+// 	color: inherit;
+// 	font-weight: 600;
+// }

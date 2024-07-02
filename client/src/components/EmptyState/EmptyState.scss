@@ -1,0 +1,18 @@
+@charset "utf-8";
+@import "../../frontend/Orogen Data-Design System.scss"; /* Token Values */
+
+.empty-state-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 50vh;
+    padding: $spacing-page-margin-normal;
+    padding-bottom: calc($spacing-page-margin-normal * 2);
+
+}
+.empty-state-icon {
+    height: 10rem;
+    object-fit: contain;
+}

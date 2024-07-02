@@ -1,0 +1,72 @@
+Sure, here's an example of how you could create a tabbed interface in React with the main component being <Tabs />, the trigger component being <Tab /> inside of <TabList />, and the content component being <TabPanel /> inside of <TabPanels />.
+
+import React, { useState } from 'react';
+
+function Tabs({ children }) {
+  const [activeTabIndex, setActiveTabIndex] = useState(0);
+
+  const handleTabClick = (index) => {
+    setActiveTabIndex(index);
+  };
+
+  const tabList = React.Children.map(children, (child, index) => {
+    if (child.type.name === 'Tab') {
+      const isActive = activeTabIndex === index;
+      return React.cloneElement(child, { isActive, onClick: () => handleTabClick(index) });
+    }
+  });
+
+  const tabPanels = React.Children.map(children, (child, index) => {
+    if (child.type.name === 'TabPanel') {
+      const isActive = activeTabIndex === index;
+      return React.cloneElement(child, { isActive });
+    }
+  });
+
+  return (
+    <div className="tabs">
+      <div className="tab-list">{tabList}</div>
+      <div className="tab-panels">{tabPanels}</div>
+    </div>
+  );
+}
+
+function TabList({ children }) {
+  return <div className="tab-list">{children}</div>;
+}
+
+function Tab({ children, isActive, onClick }) {
+  return (
+    <button className={isActive ? 'active' : ''} onClick={onClick}>
+      {children}
+    </button>
+  );
+}
+
+function TabPanels({ children }) {
+  return <div className="tab-panels">{children}</div>;
+}
+
+function TabPanel({ children, isActive }) {
+  return <div className={isActive ? 'active' : ''}>{children}</div>;
+}
+
+
+In this example, we define a <Tabs> component which manages the active tab state and renders the <TabList> and <TabPanels> components. The <TabList> component renders a list of <Tab> components, which when clicked will update the active tab. The <TabPanels> component renders the content for each tab using a list of <TabPanel> components.
+
+Each <Tab> and <TabPanel> component has a prop called isActive, which determines whether or not it should be displayed. We use React.Children.map to map over the children of <Tabs>, filter out any components that are not <Tab> or <TabPanel>, and clone them with the isActive prop.
+
+You can use this tabbed interface by rendering a <Tabs> component with a <TabList> and one or more <Tab> components, followed by a <TabPanels> component with one or more <TabPanel> components. For example:
+
+<Tabs>
+  <TabList>
+    <Tab>Tab 1</Tab>
+    <Tab>Tab 2</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>Tab 1 content</TabPanel>
+    <TabPanel>Tab 2 content</TabPanel>
+  </TabPanels>
+</Tabs>
+
+This will render a tabbed interface with two tabs labeled "Tab 1" and "Tab 2". Clicking on a tab will display its corresponding content.

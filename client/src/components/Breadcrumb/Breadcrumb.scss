@@ -1,0 +1,22 @@
+@charset "utf-8";
+@import "../../frontend/Orogen Data-Design System.scss"; /* Token Values */
+
+.breadcrumb-wrapper {
+    display: flex;
+    gap: 0.5rem;
+    color: $rockgrey-50;
+    & .arrow {
+        width: 1.375em;
+        height: 1.375em;
+        object-fit: contain;
+        fill: $rockgrey-50;
+    }
+    a {
+        text-decoration: underline;
+        display: inline-block;
+        &:last-of-type {
+            color: $orogenblue-50;
+            text-decoration: none;
+        }
+    }
+}

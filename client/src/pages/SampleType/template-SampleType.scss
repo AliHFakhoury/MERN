@@ -1,0 +1,95 @@
+@charset "utf-8";
+@import "../../frontend/Orogen Data-Design System.scss"; /* Token Values */
+
+.project-page-wrapper {
+    @include project-page-wrapper;
+}
+.to-do-block {
+    color: rgb(255,0,255);
+    background-color: rgba(255,0,255,0.1);
+    padding: 0.25em;
+    margin-bottom: 0.25rem;
+    font-family: $fontfamily-labmono;
+}
+.sample-name-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 0.75rem;
+    & .id-link {
+        color: $rockgrey-55;
+        font-family: $fontfamily-labmono;
+        text-transform: uppercase;
+        text-decoration: none;
+        &:hover {
+            color: $orogenblue-50;
+        }
+        &::after {
+            content: '';
+            display: inline-block;
+            transform: translate(0px, .0625em);
+            margin-left: 0.375em;
+            height: 1em;
+            width: 1em;
+            background-color: $black;
+        }
+    }
+}
+.top-info-grid {
+    display: grid;
+    column-gap: 2.5rem;
+    row-gap: 1.25rem;
+    grid-template-columns: $top-bar-grid-columns-with-status;
+}
+.inner-info-grid {
+    display: grid;
+    column-gap: 2rem;
+    row-gap: 1.5rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    align-self: flex-start;
+}
+.info-wrap {
+    display: block;
+}
+.info-header {
+    font-weight: 600;
+    font-size: $typesize-05;
+    margin-bottom: $spacing-025;
+}
+.info-text {
+    font-family: $fontfamily-ddin;
+    font-size: $typesize-05;
+    color: $rockgrey-55;
+}
+.info-map-wrapper {
+    aspect-ratio: 16 / 9;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $rockgrey-15;
+    grid-column: span 2;
+    & img {
+        object-fit: cover;
+        object-position: 50% 50%;
+        width: 100%;
+        height: 100%;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        z-index: 2;
+        width: .375rem;
+        height: .375rem;
+        background-color: $skyblue-50;
+        outline: $white solid 1px;
+        outline-offset: 4px;
+        border-radius: 100vw;
+    }
+}
+
+.test-block {
+    height: 10vh;
+    width: 100%;
+    background-color: darkkhaki;
+}

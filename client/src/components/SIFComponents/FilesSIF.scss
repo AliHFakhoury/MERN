@@ -1,0 +1,146 @@
+@import "../../frontend/Orogen Data-Design System.scss"; /* Token Values */
+
+.form-wrap {
+    @include flex-form-wrap;
+}
+.form-section-heading {
+    @include form-section-heading;
+}
+.file-upload-wrap {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: $round-02;
+	border-color: $rockgrey-15;
+	border-width: $border-01;
+	border-style: solid;
+    padding: 1.5rem;
+    background-color: $white;
+    color: $rockgrey-55;
+    font-size: 0.875rem;
+    &.drag {
+        border-style: dashed;
+        border-color: $skyblue-50;
+        background-color: $skyblue-15;
+        & .icon {
+            fill: $skyblue-50;
+        }
+    }
+    & input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        opacity: 0;
+        cursor: pointer;
+    }
+    & .icon {
+        height: 3rem;
+        width: 3rem;
+        fill: $rockgrey-25;
+        margin-bottom: 1rem;
+    }
+    &:hover {
+        & .icon {
+            fill: $skyblue-50;
+        }
+        & .hov-line {
+        text-decoration: underline;
+        }
+    }
+}
+.file-list-wrap {
+    display: block;
+    max-height: 17.5rem;
+    overflow-y: auto;
+    @include inside-scrollbar-light;
+}
+.file-wrap {
+    padding: $spacing-05 $spacing-04;
+    display: flex;
+    flex-direction: row;
+    gap: $spacing-05;
+    align-items: center;
+    border-bottom: $border-01 solid $rockgrey-15;
+    &:hover {
+        background-color: unquote("#{$white}"+"#{$opacity-50}");
+    }
+    &:last-child {
+        border-bottom-width: 0;
+    }
+}
+.file-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: red;
+}
+.file-info-wrap {
+    display: block;
+    width: 100%;
+}
+.file-name-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: $spacing-03;
+}
+.file-name {
+    display: inline-block;
+    font-weight: 600;
+    font-family: $fontfamily-ddin;
+}
+.file-size {
+    display: inline-block;
+    font-family: $fontfamily-labmono;
+    font-size: $typesize-01;
+    color: $rockgrey-40;
+}
+.progress-upload {
+    width: 100%;
+    height: .375rem;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: $round-02;
+    display: block;
+    &::-webkit-progress-bar {
+        background-color: $rockgrey-10;
+        border-radius: $round-02;
+    }
+    &::-webkit-progress-value {
+        background-color: $rockgrey-25;
+        border-radius: 100vw;
+
+    }
+}
+.file-complete-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: $spacing-03;
+    align-items: baseline;
+}
+.file-complete {
+    display: inline-block;
+    padding: 0.25em .75em;
+    background-color: $alert-green-20;
+    color: $alert-green-70;
+    font-weight: 600;
+    font-size: $typesize-01;
+}
+.file-remove {
+    display: inline-block;
+    color: $rockgrey-50;
+    font-weight: 500;
+    font-size: $typesize-01;
+    padding: 0.25em;
+    cursor: pointer;
+    &:hover {
+        text-decoration: underline;
+        color: $alert-red-60;
+    }
+}

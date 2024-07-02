@@ -1,0 +1,103 @@
+@import "Orogen Data-Design System.scss";    /* Token Values */
+
+body {
+    background-color: $rockgrey-05;
+    font-family: $fontfamily-cabin;
+    font-size: 16px;
+}
+code {
+    outline-style: solid;
+    outline-width: 2px;
+    outline-color: #cecece;
+    border-radius: 4px;
+    font-family: 'Lab Mono Web', monospace;
+    padding: 0.125em 0.375em;
+    margin: 0 1px;
+    display: inline-block;
+    align-self: baseline;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-weight: 600;
+    line-height: 1.2;
+    margin: 0;
+}
+h1 {
+    font-size: $h1-size;
+}
+h2 {
+    font-size: $h2-size;
+}
+h3 {
+    font-size: $h3-size;
+}
+h4 {
+    font-size: $h4-size;
+}
+h5 {
+    font-size: $h5-size;
+}
+h6 {
+    font-size: $h6-size;
+}
+p {
+    margin: 0;
+}
+img {
+    display: block;
+}
+kbd {
+    border-style: solid;
+    border-width: 2px;
+    border-color: #cecece;
+    border-radius: 4px;
+    font-family: 'Lab Mono Web', monospace;
+    padding: 0.125em 0.375em;
+    margin: 0 1px;
+    display: inline-block;
+    align-self: baseline;
+}
+label {
+    font-size: 13px;
+    line-height: 1.1;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: capitalize;
+    & .required {
+        color: $alert-red-50;
+        font-weight: 600;
+    }
+}
+meter {
+
+}
+option {
+    display: flex;
+    align-items: center;
+    gap: 0.75em;
+    padding: 0.375em 0.875em;
+    font-size: 0.875em;
+}
+progress {
+
+}
+.container {
+    display: block;
+    width: 100%;
+    max-width: $main-container-width;
+    margin: 0 auto;
+}
+.page-section {
+    padding: $spacing-page-margin-normal;
+}
+
+// Carbon Overrides
+.cds--tab-content {
+    &:focus {
+        outline: none;
+    }
+}
+.cds--tabs__nav-link {
+    &:focus {
+        outline: none !important;
+    }
+}

@@ -1,0 +1,64 @@
+@charset "utf-8";
+@import "../../frontend/Orogen Data-Design System.scss"; /* Token Values */
+
+.project-side-nav-wrapper{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100vh;
+	width: calc($spacing-04 + 2.5rem + $spacing-04);
+	padding: $spacing-055 $spacing-04;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	background-color: $skyblue-50;
+	box-shadow: inset -8px 0 13px -13px unquote("#{$skyblue-80}"+"#{$opacity-40}");
+}
+.psn-button-wrapper {
+    display: flex;
+    justify-content: left;
+	flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+	margin-top: -$spacing-page-margin-normal;
+}
+.sq-button {
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+    border-radius: $round-02;
+    background-color: unquote("#{$white}"+"#{$opacity-50}");
+    display: flex;
+    align-items: center;
+	border-width: 0;
+    justify-content: center;
+    flex-shrink: 1;
+    padding: 0;
+    &:hover {
+        background-color: unquote("#{$white}"+"#{$opacity-90}");
+    }
+    & .icon {
+        width: 60%;
+        height: 60%;
+        object-fit: contain;
+    }
+}
+.psn-info-button {
+	height: $spacing-07;
+	width: $spacing-07;
+	border-radius: 100vw;
+	background-color: $clear;
+	display: flex;
+    align-items: center;
+	border-width: 0;
+    justify-content: center;
+	margin: 0 auto;
+	&:hover {
+        background-color: unquote("#{$white}"+"#{$opacity-50}");
+    }
+    & .icon {
+        width: 95%;
+        height: 95%;
+        object-fit: contain;
+    }
+}

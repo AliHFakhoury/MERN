@@ -1,0 +1,23 @@
+@charset "utf-8";
+@import "../../frontend/Orogen Data-Design System.scss"; /* Token Values */
+
+.input[type="number"]{
+    @include input-default;
+    &.max-width {
+        &._2-ch {
+            max-width: calc(0.75em + 4ch + 0.75em);
+        }
+        &._3-ch {
+            max-width: calc(0.75em + 6ch + 0.75em);
+        }
+        &._4-ch {
+            max-width: calc(0.75em + 8ch + 0.75em);
+        }
+        &._6-ch {
+            max-width: calc(0.75em + 12ch + 0.75em);
+        }
+        &._10-ch {
+            max-width: calc(0.75em + 20ch + 0.75em);
+        }
+    }
+}

@@ -1,0 +1,26 @@
+@import '../../frontend/Orogen Data-Design System.scss';
+
+.login-page-wrapper{
+    min-height: 100vh;
+    background-image: url("../images/_DSC0615.jpg");
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 4vw 0 4vw 10vw;
+    object-fit: cover;
+    background-position: 50% 50%;
+    background-size: cover;
+    margin-top: -4vw;
+}                   
+.login-wrapper {
+    padding: $spacing-08;
+    border-radius: $border-06;
+    box-shadow: $shadow-level-04;
+    min-width: calc($spacing-08 + 350px + $spacing-08);
+    background-color: $white;
+}

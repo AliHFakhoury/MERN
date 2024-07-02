@@ -1,0 +1,53 @@
+@charset "utf-8";
+@import "../../frontend/Orogen Data-Design System.scss"; /* Token Values */
+/* The container */
+.radio-wrap {
+	display: flex;
+	position: relative;
+	justify-content: flex-start;
+	align-items: center;
+	padding-left: 1.875rem;
+	margin-bottom: $spacing-04;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	& label {
+		margin-bottom: 0;
+	}
+  }
+  
+  /* Hide the browser's default checkbox */
+  .radio-wrap input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .radio-checkmark {
+	position: absolute;
+	top: -.125rem;
+	left: 0;
+	height: 1.125rem;
+	width: 1.125rem;
+	border: $border-01 solid $rockgrey-15;
+	border-radius: 100vw;
+	background-color: $clear;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .radio-wrap:hover input ~ .radio-checkmark {
+	background-color: $rockgrey-15;
+  }
+  
+  /* When the checkbox is checked, add a background */
+  .radio-wrap input:checked ~ .radio-checkmark {
+	background-color: $rockgrey-80;
+	border-color: $rockgrey-80;
+	border-width: 2px;
+	box-shadow: inset 0 0 0 3px $white;
+  }

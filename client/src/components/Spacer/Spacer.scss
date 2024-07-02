@@ -1,0 +1,73 @@
+@charset "utf-8";
+@import "../../frontend/Orogen Data-Design System.scss"; /* Token Values */
+.box-spacer {
+	user-select: none;
+	&._01 {
+		width: $spacing-01;
+		height: $spacing-01;
+	}
+	&._02 {
+		width: $spacing-02;
+		height: $spacing-02;
+	}
+	&._025 {
+		width: $spacing-025;
+		height: $spacing-025;
+	}
+	&._03 {
+		width: $spacing-03;
+		height: $spacing-03;
+	}
+	&._04 {
+		width: $spacing-04;
+		height: $spacing-04;
+	}
+	&._05 {
+		width: $spacing-05;
+		height: $spacing-05;
+	}
+	&._055 {
+		width: $spacing-055;
+		height: $spacing-055;
+	}
+	&._06 {
+		width: $spacing-06;
+		height: $spacing-06;
+	}
+	&._07 {
+		width: $spacing-07;
+		height: $spacing-07;
+	}
+	&._075 {
+		width: $spacing-075;
+		height: $spacing-075;
+	}
+	&._08 {
+		width: $spacing-08;
+		height: $spacing-08;
+	}
+	&._09 {
+		width: $spacing-09;
+		height: $spacing-09;
+	}
+	&._10 {
+		width: $spacing-10;
+		height: $spacing-10;
+	}
+	&._11 {
+		width: $spacing-11;
+		height: $spacing-11;
+	}
+	&._12 {
+		width: $spacing-12;
+		height: $spacing-12;
+	}
+	&._13 {
+		width: $spacing-13;
+		height: $spacing-13;
+	}
+	&._page-margin-normal {
+		width: $spacing-page-margin-normal;
+		height: $spacing-page-margin-normal;
+	}
+}

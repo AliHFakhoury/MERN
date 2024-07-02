@@ -1,0 +1,214 @@
+@charset "utf-8";
+@import "../../frontend/Orogen Data-Design System.scss"; /* Token Values */
+
+.light-box-grid {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    & > * {
+        width: 9rem;
+        height: 9rem;
+        object-fit: cover;
+        border-radius: $round-03;
+        border: $border-01 solid $clear;
+    }
+}
+.last-item {
+    display: grid;
+    position: relative;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr ;
+    background-color: $rockgrey-15;
+    border-color: $rockgrey-15;
+    overflow: hidden;
+    &::after {
+        content: '+18';
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        font-size: 1.5em;
+        font-weight: 500;
+    }
+    & > img {
+        width: 100%;
+        height: 100%;
+        border: none;
+        object-fit: cover;
+        transform: scale(1.05);
+        -webkit-filter: blur(3px);
+        filter: blur(3px);
+    }
+}
+
+
+// Lightbox Background
+.light-box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: $spacing-08;
+    overflow-y: auto;
+    background-color: rgba(0,0,0,0.85);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    color: $body-colour;
+    & img {
+        display: block;
+    }
+    &.hide {
+        display: none;
+    }
+}
+// Lightbox Content
+.light-box-content {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr minmax(12rem, 20rem);
+    gap: 2.5rem;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%;
+}
+.light-box-selected-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.light-box-image-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    font-size: $typesize-05;
+    & .divider {
+        width: 100%;
+        border-top: 1px solid $rockgrey-50;
+        margin-top: 1.25rem;
+        padding-top: 1.25rem;
+    }
+    & .info-bit {
+        display: inline-block;
+        font-family: $fontfamily-labmono;
+        font-size: $typesize-01;
+        color: $rockgrey-40;
+        &.space {
+            padding: 0 0.5em;
+        }
+    }
+    & label {
+        color: $rockgrey-25;
+    }
+}
+.user-label-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+// Pinned Note Things
+.pinned-note-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: $round-03;
+    font-size: $typesize-03;
+    line-height: 1;
+    &.new {
+        background-color: unquote("#{$white}"+"#{$opacity-10}");
+    }
+    & .icon {
+        width: 1.25em;
+        height: 1.25em;
+        flex-shrink: 0;
+        align-self: flex-start;
+    }
+}
+
+// Close Button
+.close {
+    position: absolute;
+    top: $spacing-055;
+    right: $spacing-05;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border-radius: $round-02;
+    cursor: pointer;
+    &:hover {
+        background-color: unquote("#{$white}"+"#{$opacity-15}");
+    }
+    &:active {
+        background-color: unquote("#{$white}"+"#{$opacity-25}");
+    }
+    &:focus-visible {
+        @include focus-state;
+    }
+    & .icon {
+        width: 60%;
+        height: 60%;
+        fill: $white;
+    }
+}
+//Wraps the active Image
+.img-slide {
+    display: none;
+}
+//Indicate Clickable
+.cursor {
+    cursor: pointer;
+}
+.caption-wrap {
+    font-family: $fontfamily-ddin;
+    color: $body-colour;
+    text-align: center;
+}
+
+//Wraps clickable images to select the active slide
+.light-box-carousel {
+    width: 100%;
+    padding: 2.5rem 2.55%;
+    padding-bottom: .5rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 1rem;
+    overflow-x: auto;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+    mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 1) 5%, rgba(0, 0, 0, 1) 95%, transparent 100%),
+    linear-gradient(180deg, transparent 0%, transparent calc(100% - 7px), black 7px); /* not masked area for scrollbar */
+    & > img {
+        width: 6rem;
+        height: 6rem;
+        object-fit: contain;
+        opacity: .6;
+        cursor: pointer;
+        &:hover {
+            opacity: 1;
+        }
+    }
+    &.has-overflow {
+        justify-content: left;
+    }
+    @include inside-scrollbar-dark;
+}

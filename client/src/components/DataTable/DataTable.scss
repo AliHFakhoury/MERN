@@ -1,0 +1,87 @@
+.my-table {
+    border: 1px solid #000000;
+    //border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+
+
+
+
+    thead {
+        tr {
+            height: 3rem;
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+
+            th {
+                font-weight: bold;
+                text-align: left;
+                color: #ffffff;
+                padding: 1rem;
+                background-color: #091b8a;
+                border-bottom: 1px solid #8c8c8c;
+                width: 180px;
+
+                &:first-child {
+                    border-radius: 10px 0 0 0;
+                }
+
+                &:last-child {
+                    border-radius: 0 10px 0 0;
+                }
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            height: 3rem;
+
+            &:nth-child(even) {
+                background-color: #cfd5fa;
+            }
+
+            &:nth-child(odd) {
+                background-color: #ffffff;
+            }
+
+            td {
+                padding: 1.15rem;
+                text-align: left;
+                border-bottom: 1px solid #8c8c8c;
+
+                &:first-child {
+                    border-radius: 0 0 0 10px;
+                }
+
+                &:last-child {
+                    border-radius: 0 0 10px 0;
+                }
+
+                &.editable {
+                    position: relative;
+
+                    input {
+                        width: 100%;
+                        border: none;
+                        background-color: transparent;
+                        padding: 0.5rem;
+                    }
+
+
+                }
+            }
+        }
+
+
+
+        tr:hover {
+            background-color: #b9b7b7;
+        }
+    }
+
+
+
+
+}
