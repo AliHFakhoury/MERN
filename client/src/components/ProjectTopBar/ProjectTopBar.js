@@ -6,11 +6,12 @@ import AppStatus from '../../patterns/AppStatus/AppStatus.js';
 import { useAppContext } from "../../context/appContext";
 
 import { Search, Settings} from "@carbon/icons-react";
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const ProjectTopBar = () => {
-    const { project } = useAppContext();
-    const settingsURL = "/project-settings/"+project._id;
+    const { projectIdParams } = useParams();
+
+    const settingsURL = "/project-settings/"+projectIdParams;
 
     return (
         <div className='project-top-bar-wrapper'>

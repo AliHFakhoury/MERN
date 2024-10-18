@@ -1,79 +1,77 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { useAppContext } from '../../../../context/appContext';
-
+import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
-import AddProjectForm from '../Add Form/AddProjectForm'
+import AddProjectForm from '../Add Form/AddProjectForm';
 import ProjectOnGrid from '../ProjectsGrid/ProjectOnGrid';
-import '../../styling/ProjectSettings.scss'
+import '../../styling/ProjectSettings.scss';
+
+
+import { useDispatch, useSelector } from 'react-redux';
+import { load_projects, toggle_adding_project, test_action, test_action2 } from '../../../../context/actions';
 
 const ProjectsComponent = () => {
-    const [projects, setProjects] = useState([]);
-    const { companyID, addProjectIdToLocalStorage, addingProject, setAddingProject } = useAppContext();
-    // const userStorage = localStorage.getItem('user')
-    // const userObject = JSON.parse(userStorage)
-    const userObject = "123"
+    const dispatch = useDispatch();
 
+
+    const company_id = useSelector( (state) => state.projectReducer.company_id);
+    const projects = useSelector( (state) => state.projectReducer.projects);
+    const addingProject = useSelector( (state) => state.projectReducer.addingProject);
+
+    const userID = "6683352cc707c3b57c5a1caa";
+    
     useEffect(() => {
         fetchData();
-      }, []);
+    }, []);
+
 
     const fetchData = async () => {
-        const response = await axios.post("http://localhost:5000/controller/project/getAllProjects", { userID: userObject._id});
-        setProjects(response.data);
-
-        console.log(response.data);
+        await axios.post("http://localhost:5000/controller/project/getAllProjects", { userID: userID}).then((response) => {
+            console.log(response.data);
+            dispatch(load_projects(response.data));
+        }).catch((error) => {
+            // Build error handling after everything
+            console.log(error);
+        });
     }
 
     const handleProjectCreation = async (formData) => {
         const project = {
             project_name: formData.project_name,
             project_type: formData.project_type || "production",
-            company_id: companyID,
-            project_creator: userObject._id
+            // company_id: companyID,
+            project_creator: userID
+        };
 
-        }
+        await axios.post("http://localhost:5000/controller/project/createProject", project).then((result)=>{
+            dispatch(toggle_adding_project(false));
 
-        console.log("PROJECT:")
-        console.log(project)
-
-        const response = await axios.post("http://localhost:5000/controller/project/createProject", project).then((result)=>{
-            setAddingProject(false)
-            project._id = result.data._id
-            console.log(result)
+            project._id = result.data._id;
         });
 
-        setProjects(existingProjects => [...existingProjects, project])
-    }
-
-    const cancelProject = () => {
-        setAddingProject(false)
+        dispatch(load_projects([...projects, project]));
     }
 
     return (
         <>
             { addingProject ? (
                 <div className='w-layout-grid settings-sample-type-field-options-grid button-wrapper'>       
-                    <AddProjectForm companyID={companyID} onSave={handleProjectCreation} onCancel={cancelProject}/>
+                    <AddProjectForm companyID={company_id} onSave={handleProjectCreation}/>
                 </div>
             ) : (
                 <>
 
                 </>
-            )}
-
-            
+            )}       
             
             <div className='projects-grid'>
                 {projects.map((project) => (
                     <ProjectOnGrid project={project} key={project._id}/>
                 ))}
             </div>
-            
         </>
-    )
+    );
 }
 
-export default ProjectsComponent
+export default ProjectsComponent;
 
 
 /*

@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { InputContainer, Logo, ButtonWrapper, Button, Alert, Spacer } from '../../components'
-import { useAppContext } from '../../context/appContext';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const initialState = {
@@ -10,20 +9,10 @@ const initialState = {
 };
 
 const Login = () => {
-    const { user, isLoading, showAlert, displayAlert, loginUser } = useAppContext();
     const [values, setValues] = useState(initialState);
+    const tokenInStorage = localStorage.getItem('token')
     const navigate = useNavigate();
-
-    useEffect(() => {
-        const tokenInStorage = localStorage.getItem('token')
     
-        if(tokenInStorage){
-            verifyToken(tokenInStorage)
-        }
-        
-
-    }, [user])
-
     const verifyToken = async (tokenInStorage) => {
         try{
             const request = await axios.post('http://localhost:5000/controller/user/verifyToken', {'token': tokenInStorage})
@@ -38,6 +27,9 @@ const Login = () => {
         }
     }
 
+    if(tokenInStorage){
+        verifyToken(tokenInStorage)
+    }
     const handleChange = (e) => {
         setValues({...values, [e.target.name] : e.target.value});
     }
@@ -49,6 +41,32 @@ const Login = () => {
         const currentUser = {username, password}
 
         loginUser(currentUser);
+    }
+
+    const loginUser = async (currentUser) => {
+        try {
+            await axios.post('http://localhost:5000/controller/user/login', currentUser).then( (response) => {
+                console.log(response.status)
+
+                if(response.status != 200){
+                    console.log("Login failed.")
+
+                    return ;
+                }else{
+                    const {user, token} = response.data;
+                    addUserToLocalStorage({user, token});
+                    navigate('/companyDashboard')
+                }
+
+            });
+        } catch (error){
+            console.log(error.response);
+        }
+    }
+
+    const addUserToLocalStorage = ({user, token}) => {
+        localStorage.setItem('user', JSON.stringify(user));
+        localStorage.setItem('token', token);
     }
 
     return (

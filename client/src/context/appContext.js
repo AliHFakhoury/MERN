@@ -1,5 +1,5 @@
 import React, { useReducer, useContext, useEffect } from 'react'
-import reducer from './reducer'
+import rootReducer from './reducers/rootReducer'
 import axios from 'axios';
 
 import { 
@@ -14,7 +14,6 @@ import {
     TOGGLE_SAMPLELISTOPEN,
     UPDATE_PROJECT,
     UPDATE_PROJECT_IN_STATE,
-    SET_ADD_PROJECT,
     TEST
 } from "./actions";
 
@@ -25,9 +24,6 @@ const token = localStorage.getItem('token');
 
 const initialAppContextState = {
     isLoading: false,
-    showAlert: true,
-    alertText: 'ALERT TEXT',
-    alertType: 'danger',
     user: user ? JSON.parse(user) : null,
     token: token,
     sampleListOpen: false,
@@ -41,7 +37,7 @@ const initialAppContextState = {
 const AppContext = React.createContext();
 
 const AppProvider = ({children}) => {
-    const [state, dispatch] = useReducer(reducer, initialAppContextState);
+    const [state, dispatch] = useReducer(rootReducer, initialAppContextState);
 
     const addProjectIdToLocalStorage = (projectID) => {
         localStorage.setItem('projectID', projectID);
@@ -63,7 +59,6 @@ const AppProvider = ({children}) => {
 
     const displayAlert = () => {
         dispatch({type: DISPLAY_ALERT})
-        console.log("Hello!!");
         clearAlert()
     }
 

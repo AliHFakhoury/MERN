@@ -70,9 +70,6 @@ dotenv.config();
 if(process.env.NODE_ENV !== 'production'){
     app.use(morgan('dev'));
 }
- 
-
-
 
 const corsOpts = {
     origin: '*',

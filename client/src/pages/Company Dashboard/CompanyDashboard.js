@@ -17,7 +17,6 @@ import ProjectsComponent from './components/ProjectsComponent/ProjectsComponent'
 // import Navbar from '../../components/Navbar/Navbar.js';
 
 const CompanyDashboard = () => {
-
     return (
         <div>
             <Navbar/>

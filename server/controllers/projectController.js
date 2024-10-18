@@ -63,8 +63,9 @@ const createProject = async (req, res) => {
     const project_type = formData.project_type
     const project_creator = formData.project_creator
     const company_id = formData.company_id
-    
+    console.log(company_id);
     const company_id_Object = new ObjectId(company_id)
+    console.log(company_id_Object);
     const project_creator_object = new ObjectId(project_creator)
 
     const project = {

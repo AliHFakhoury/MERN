@@ -4,12 +4,10 @@ import { Outlet, Link, useParams } from 'react-router-dom';
 import { Grid, Column } from 'carbon-components-react';
 import {ChevronRight} from '@carbon/icons-react';
 
-// app context
-import { initialAppContextState, useAppContext } from '../../context/appContext';
-
 // our components
 import { InputContainer, Navbar, Tabs, Spacer, Breadcrumb } from '../../components/index.js'
 import TabsMenu from './components/TabsMenu'
+import axios from "axios";
 
 
 // project settings styles
@@ -23,14 +21,24 @@ import './styling/ProjectSettings.scss'
 
 const TemplateProjectSettings = () => {
     const { projectIdParams } = useParams();
-    const { updateProject, project } = useAppContext();
-    const sampleTypesURL = "/projectDashboard/"+project._id;
+    const [ project, setProject ] = useState({})
+    const sampleTypesURL = "/projectDashboard/"+projectIdParams;
 
     useEffect(() => {        
         if(projectIdParams !== undefined){
-            updateProject(projectIdParams)
+            loadProject();
         }
     }, [])
+
+
+    const loadProject = async () => {
+        await axios.get(`http://localhost:5000/controller/project/getProject/${projectIdParams}`).then( (response) => {
+            console.log(response) 
+            if(response.status === 200){
+                setProject(response.data)
+            }
+        })
+    }
 
     return (
         <div>

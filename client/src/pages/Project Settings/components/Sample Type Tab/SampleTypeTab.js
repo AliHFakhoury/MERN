@@ -28,12 +28,13 @@ import "./SampleList.scss";
 import AddFormBlock from "../Add Form/AddFormBlock";
 import AddFormGroup from "../Add Form/AddFormGroup";
 import { useAppContext } from "../../../../context/appContext";
-
+import { useParams } from "react-router-dom";
 
 // Don't allow the user to switch without having to press ok on canceling or something like that. Ask Cole :D
 
 const SampleTypeTab = () => {
-  const { project } = useAppContext();
+  const { projectIdParams } = useParams();
+  const [ project, setProject ] = useState({})
 
   //These come from the database 
   const [ sampleTypes, setSampleTypes ] = useState([]);
@@ -65,6 +66,11 @@ const SampleTypeTab = () => {
     'notes': Chat,
   }
 
+  useEffect( () => {
+    loadProject()
+  }, [])
+
+
   useEffect(() => {
     if(Object.keys(project).length > 0){
       fetchData();
@@ -72,6 +78,15 @@ const SampleTypeTab = () => {
 
   }, [project]);
   
+
+  const loadProject = async () => {
+    await axios.get(`http://localhost:5000/controller/project/getProject/${projectIdParams}`).then( (response) => {
+        console.log(response) 
+        if(response.status === 200){
+            setProject(response.data)
+        }
+    })
+}
 
   const fetchData = async () => {
 

@@ -1,19 +1,17 @@
 import React from "react";
-import { render } from "react-dom";
 import Logo from "../Logo/Logo";
 import Button from "../Button/Button";
 import "./Navbar.scss";
 import NavTopMenu from "../NavTopMenu/NavTopMenu";
-import { useAppContext } from '../../context/appContext';
-
+import { useDispatch, useSelector } from 'react-redux'
+import { toggle_adding_project } from '../../context/actions'
 
 const Navbar = () => {
-  
-  const { addingProject, setAddingProject } = useAppContext();
+  const dispatch = useDispatch();
+  // const addingProject = useSelector((state) => state.projectReducer.addingProject)
 
   const onAddButtonClick = () => {
-    console.log(addingProject)
-    setAddingProject(true)
+    dispatch(toggle_adding_project(true))
   }
 
   return (

@@ -227,7 +227,7 @@ const DataTableComponent = ({ headersProp, rowDataProp }) => {
 
             ): (
                 <>
-                Empty State
+                
                 </>
             )}
         </>

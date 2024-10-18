@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { FormRow, Checkbox, RadioButton, Switch, ButtonWrapper, Button, Spacer, InputWrap, InputText, InputNumber, Modal } from '../../../../components';
 import './AddProjectForm.scss';
-import { useAppContext } from '../../../../context/appContext';
 
-const AddProjectForm = ({ onSave, onCancel, onFNChange, isAdding }) => {
+import { useDispatch, useSelector } from 'react-redux'
+import { toggle_adding_project } from '../../../../context/actions'
+
+const AddProjectForm = ({ onSave }) => {
     const [formData, setFormData] = useState({});
-    const { addingProject, setAddingProject } = useAppContext();
+
+    const dispatch = useDispatch();
+    const addingProject = useSelector((state) => state.projectReducer.addingProject)
+  
 
     const handleStringInputChange = (indexInState, event) => {
         const { value } = event.target;
@@ -55,8 +60,7 @@ const AddProjectForm = ({ onSave, onCancel, onFNChange, isAdding }) => {
 
         if(window.confirm("Are you sure you want to cancel?")){
             console.log("Canceled from the Add Project Form")
-            setAddingProject(false)
-            onCancel()
+            dispatch(toggle_adding_project(false))
         }else{
             console.log("Form Not Canceled.")
         }

@@ -1,25 +1,26 @@
-import { useEffect } from "react";
-import { useAppContext } from "../../../../context/appContext"
-import { Link, useNavigate } from "react-router-dom";
-import { Button } from "carbon-components-react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { update_project } from "../../../../context/actions";
+import { connect } from 'react-redux';
 
+// Look more into the connect function. dafuq is happening?
 
 const ProjectOnGrid = ({project}) => {
-    const { updateProject } = useAppContext();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const projectURL = '/projectDashboard/' + project._id;
 
-    const handleEditClick = () => {
-        updateProject(project._id);
-        navigate("/project-settings/"+project._id)
-    };
 
+    const linkClicked = () => {
+        dispatch(update_project(project));
+        navigate(projectURL);
+    }
 
     return (
        
         <div>
-            <a href={projectURL} target="" className="project-thumbnail">
+            <a target="" className="project-thumbnail" onClick={linkClicked}>
                 <div className="project-thumbnail-hover">
                     Open Project
                 </div>
@@ -31,8 +32,17 @@ const ProjectOnGrid = ({project}) => {
             {/* <div className="project-last-edit">Last Edited: TIME</div> */}
             {/* <div>Project Type: {project.project_type}</div> */}
         </div>
-       
     )
 }
 
-export default ProjectOnGrid
+// const mapStateToProps = (state) => ({
+//     projects: state.projects,
+//     project: state.project,
+//   });
+
+// const mapDispatchToProps = {
+//     update_project,
+//   };
+
+// export default  connect(mapStateToProps, mapDispatchToProps)(ProjectOnGrid);
+export default ProjectOnGrid;

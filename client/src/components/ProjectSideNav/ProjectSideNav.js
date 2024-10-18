@@ -6,10 +6,12 @@ import { OverflowMenuHorizontal } from '@carbon/icons-react';
 import Button from "../../components/Button/Button";
 import { Link } from 'react-router-dom';
 import { useAppContext } from "../../context/appContext";
+import { useSelector } from 'react-redux';
 
 
 const ProjectSideNav = () => {
-    const { project } = useAppContext();
+
+    const project = useSelector( (state) => state.projectReducer.project);
 
     const companyDashboard = "/companyDashboard";
     const sampleTypesURL = "/projectDashboard/"+project._id;
@@ -22,10 +24,10 @@ const ProjectSideNav = () => {
             <Logo colour='black' maxSize='2.5rem' />
                     <div className='psn-button-wrapper'>      
                         <Link to={companyDashboard}><Button  buttonStyle='sq-button on-colour' icon='Workspace' title='Dashboard'/></Link>
-                        <Link to={documentsURL}><Button  buttonStyle='sq-button on-colour' icon='Folders' title='Documents'/></Link>
-                        <Link to={sampleTypesURL}><Button  buttonStyle='sq-button on-colour' icon='Nominal' title='Samples'/></Link> 
-                        <Link to={mapURL}><Button  buttonStyle='sq-button on-colour' icon='Earth' title='Map'/></Link> 
-                        <Button  buttonStyle='sq-button on-colour' icon='Task' title='My Tasks [Coming Soon]'/>
+                        <Link><Button  buttonStyle='sq-button on-colour' icon='Folders' title='Documents [Coming Soon]'/></Link>
+                        <Link><Button  buttonStyle='sq-button on-colour' icon='Nominal' title='Samples [Coming Soon]'/></Link> 
+                        <Link><Button  buttonStyle='sq-button on-colour' icon='Earth' title='Map [Coming Soon]'/></Link> 
+                        <Link><Button  buttonStyle='sq-button on-colour' icon='Task' title='My Tasks [Coming Soon]'/></Link>
 
 
                         {/* <Link to={companyDashboard}><Button  buttonStyle='sq-button on-colour' text={'Projects'} title='Dashboard'/></Link>

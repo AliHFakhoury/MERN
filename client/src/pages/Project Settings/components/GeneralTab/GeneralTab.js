@@ -3,16 +3,22 @@ import Input from '../../../../components/InputText/TextInput';
 import { useAppContext } from '../../../../context/appContext';
 import { Button, InputWrap, Selector } from '../../../../components';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 const GeneralTab = () => {
-    const { updateProjectInState, project } = useAppContext(); 
-    
+    const { projectIdParams } = useParams();
+    const [ project, setProject ] = useState({})
+
     const [ formData, setFormData ] = useState({})
 
     const project_types = [
         "Exploration",
         "Production"
     ]
+
+    useEffect( () => {
+        loadProject()
+    }, [])
 
     useEffect( () => {
         if(Object.keys(project).length > 0 && project !== undefined){
@@ -23,6 +29,15 @@ const GeneralTab = () => {
         }
     }, [project])
 
+
+    const loadProject = async () => {
+        await axios.get(`http://localhost:5000/controller/project/getProject/${projectIdParams}`).then( (response) => {
+            console.log(response) 
+            if(response.status === 200){
+                setProject(response.data)
+            }
+        })
+    }
 
     const handleNameOnChange = (event) => {
         const { value } = event.target;
@@ -43,7 +58,7 @@ const GeneralTab = () => {
     const handleSaveButton = async () => {
         console.log(formData)
 
-        const response = await axios.put(`http://localhost:5000/controller/project/updateProject/${project._id}`, formData);    
+        await axios.put(`http://localhost:5000/controller/project/updateProject/${project._id}`, formData);    
         updateProjectInState(formData)
     }
 

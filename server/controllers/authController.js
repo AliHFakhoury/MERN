@@ -2,31 +2,30 @@ import User from '../models/Users.js';
 import { StatusCodes } from 'http-status-codes';
 import { BadRequestError, NotFoundError, UnauthenticatedError } from '../errors/index.js'
 import jwt from 'jsonwebtoken'
+import { ObjectId } from 'mongodb';
 
 const register = async (req, res) => {
     const {username, password} = req.body
+    const company_id = new ObjectId('66a580c12ea4d04b28b20f24');
+
     if(!username || !password){
         throw new BadRequestError("Please provide all values.")    
     }
     
     const userAlreadyExists = await User.findOne({username})
+
     if(userAlreadyExists){
         throw new BadRequestError('User already in use.')
     }
     
-    const user = await User.create(req.body);
+    const user = await User.create({username, password, company_id});
 
     const token = user.createJWT();
 
-
     res.status(StatusCodes.CREATED).json({ 
-        user: { 
-            username:user.username
-        },
+        user,        
         token
-    });   
-     
-    res.status(StatusCodes.CREATED).json({user});    
+    });  
 }
 
 const login = async (req, res) => {

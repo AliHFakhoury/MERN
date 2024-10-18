@@ -3,10 +3,9 @@ import Alert from './Alert/Alert.js';
 import { InformationSquareFilled } from '@carbon/icons-react';
 import Tooltip from './ToolTip/ToolTip.js';
 import InputText from './InputText/TextInput';
-import { useAppContext } from '../context/appContext';
 
 const InputContainer = ({ type, name, value, handleChange, labelText, labelLinkText, helpText, required, showRequired, info, labelLink, inputHasAlert }) => {
-    const { isLoading, showAlert, alertText } = useAppContext();
+    const showAlert = false;
 
     return (
         <div className='input-wrapper'>

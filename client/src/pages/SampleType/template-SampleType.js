@@ -6,8 +6,7 @@ import './template-SampleType.scss';
 import { ChevronRight } from "@carbon/icons-react";
 import map from './map.png';
 import { Link, useParams } from 'react-router-dom';
-import { useAppContext } from '../../context/appContext';
-import DynamicForm from './components/DynamicForm/DynamicForm';
+ import DynamicForm from './components/DynamicForm/DynamicForm';
 import FilesSIF from '../../components/SIFComponents/Files-SIF';
 
 /*
@@ -29,24 +28,30 @@ const InfoItem = (props) => {
   }
 
 const TemplateSampleType = () => {
-    const { project, updateProject } = useAppContext()
-    const { sampleTypeIDParams } = useParams();
+    const { projectIdParams, sampleTypeIDParams } = useParams();
     const [ sampleType, setSampleType ] = useState({})
+    const [ project, setProject ] = useState({})
     const [ dataTableHeaders, setDataTableHeaders] = useState([])
-
+    
     useEffect( () => {
+        loadProject()
         fetchSampleType()
     }, [])
 
     useEffect( () => {
         if(sampleType !== undefined && Object.keys(sampleType).length > 0){
-            const project_id = sampleType.project_id
-            updateProject(project_id)
-
-            // console.log(sampleType)
             buildDataTableHeaders()
         }
     }, [sampleType])
+
+    const loadProject = async () => {
+        await axios.get(`http://localhost:5000/controller/project/getProject/${projectIdParams}`).then( (response) => {
+            console.log(response) 
+            if(response.status === 200){
+                setProject(response.data)
+            }
+        })
+    }
 
     const fetchSampleType = async () => {
         await axios.get(`http://localhost:5000/controller/sampleType/getAllSamples/${sampleTypeIDParams}`).then( (response) => { 
@@ -89,7 +94,7 @@ const TemplateSampleType = () => {
             }
         }
 
-        const addRequest = await axios.put(`http://localhost:5000/controller/sample/addSample/${sampleType.project_id}/${sampleType._id}`, sampleObj).then( (response) => { 
+        await axios.put(`http://localhost:5000/controller/sample/addSample/${sampleType.project_id}/${sampleType._id}`, sampleObj).then( (response) => { 
             updateSamplesInDT(response.data)
 
             const sampleId = response.data._id
@@ -143,9 +148,7 @@ const TemplateSampleType = () => {
             })
             .catch((error) => {
                 console.error(error);
-            });
-            
-            
+            });    
         }
     }
 

@@ -1,36 +1,43 @@
 import React, { useEffect, useState } from "react";
 import './Dashboard.scss';
-import { ProjectSideNav, Logo, Spacer, ButtonWrapper, Checkbox} from "../../components";
+import { ProjectSideNav } from "../../components";
 import ProjectTopBar from "../../components/ProjectTopBar/ProjectTopBar";
 
-import { useAppContext } from "../../context/appContext";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 
 const Dashboard = () => {
     const { projectIdParams } = useParams();
-    const { updateProject, project } = useAppContext();
-    const [ sampleTypes, setSampleTypes ] = useState([])
+    const [ project, setProject ] = useState({});
+    const [ sampleTypes, setSampleTypes ] = useState([]);
 
     useEffect(() => {        
         if(projectIdParams !== undefined){
-            updateProject(projectIdParams)
+            fetchProject(projectIdParams);
         }
-    }, [])
+    }, []);
     
     useEffect( () => {
         if(project !== undefined && Object.keys(project).length > 0){
             fetchSampleTypes()
         }
-    }, [project])
+    }, [project]);
+
+    const fetchProject = async (projectId) => {
+        await axios.get(`http://localhost:5000/controller/project/getProject/${projectId}`).then((response)=>{
+            if(response.status == 200){
+                setProject(response.data);
+            }
+        })
+        }
 
     const fetchSampleTypes = async () => {
-        const sampleTypeIds = project.sample_type_ids
+        const sampleTypeIds = project.sample_type_ids;
 
         await axios.post(`http://localhost:5000/controller/sampleType/getAllSamplesWithLatest`, sampleTypeIds).then( (response) => {
-            console.log(response.data)
-            setSampleTypes(response.data)
-        })
+            console.log(response.data);
+            setSampleTypes(response.data);
+        });
         
     }
 
@@ -48,11 +55,16 @@ const Dashboard = () => {
                     {/* <h2>Documents:</h2>
                     <h3>Shows latest documents added</h3> */}
 
+                    { sampleTypes.length == 0 && (
+                        <div>
+                            <h3><Link to={"/project-settings/"+projectIdParams}>Create Sample Types</Link></h3>
+                        </div>
+                    )}
 
                     { sampleTypes.length > 0 && (
                         sampleTypes.map( (item, index) => (
                             <div key={index}>
-                                <Link to={"/sampleType/"+item._id}><h3>{item.sampleTypeName}</h3></Link>
+                                <Link to={"/"+projectIdParams+"/sampleType/"+item._id}><h3>{item.sampleTypeName}</h3></Link>
 
 
                                 {/* List the latest additions to each sample types, V1 */}

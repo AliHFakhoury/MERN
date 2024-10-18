@@ -6,8 +6,6 @@ import { useAppContext } from '../../context/appContext';
 import './InputWrap.scss';
 
 const InputWrap = ({children, name, labelText, labelLinkText, labelLink, labelLinkTarget, showRequired, helpText, info}) => {
-    const { isLoading, showAlert, alertText } = useAppContext();
-
     return (
         <>
         <div className='input-wrapper'>
